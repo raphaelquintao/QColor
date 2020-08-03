@@ -1,0 +1,11 @@
+{
+  "q_color":
+  {
+    "_debug": false,
+    "active": false,
+    "enabled": false
+  },
+  "circular_phantom": false,
+  "hsl_float": true,
+  "hex_upper_case": true,
+}

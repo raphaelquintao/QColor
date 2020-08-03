@@ -1,0 +1,1605 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"colors\tstatement"
+			],
+			[
+				"get",
+				"getNamed\tfunction"
+			],
+			[
+				"re",
+				"return\tkeyword"
+			],
+			[
+				"he",
+				"hex\tstatement"
+			],
+			[
+				"ge",
+				"getHEX\tfunction"
+			],
+			[
+				"def",
+				"defs\tMethod"
+			],
+			[
+				"s",
+				"strip\tfunction"
+			],
+			[
+				"ver",
+				"version\tstatement"
+			],
+			[
+				"v",
+				"api_version\tstatement"
+			],
+			[
+				"version",
+				"version_info\tstatement"
+			],
+			[
+				"rege",
+				"regex\tstatement"
+			],
+			[
+				"for",
+				"for\tFor Loop"
+			],
+			[
+				"png",
+				"png_trans"
+			],
+			[
+				"sty",
+				"style2"
+			],
+			[
+				"pn",
+				"png_trans"
+			],
+			[
+				"rg",
+				"rgb"
+			],
+			[
+				"frm",
+				"fromTuple"
+			],
+			[
+				"r",
+				"reg"
+			],
+			[
+				"cir",
+				"circular_phantom"
+			],
+			[
+				"se",
+				"self"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"hs",
+				"hsl_float"
+			],
+			[
+				"Q",
+				"QColorUtils"
+			],
+			[
+				"getHS",
+				"getHSLA"
+			],
+			[
+				"getRG",
+				"getRGBA"
+			],
+			[
+				"getR",
+				"getRGB"
+			],
+			[
+				"ci",
+				"circular"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"pha",
+				"phantom_show"
+			],
+			[
+				"d",
+				"def\tFunction"
+			],
+			[
+				"po",
+				"popup_show"
+			],
+			[
+				"fi",
+				"find_region"
+			],
+			[
+				"no",
+				"Not"
+			],
+			[
+				"in",
+				"in_region"
+			],
+			[
+				"a",
+				"alpha"
+			],
+			[
+				"e",
+				"else"
+			],
+			[
+				"regio",
+				"region"
+			],
+			[
+				"pri",
+				"print"
+			],
+			[
+				"sub",
+				"sublime"
+			],
+			[
+				"QC",
+				"QColorUtils"
+			],
+			[
+				"QCo",
+				"QColor"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"color",
+				"colors"
+			],
+			[
+				"is",
+				"is_visible"
+			],
+			[
+				"lib",
+				"libdir"
+			],
+			[
+				"reg",
+				"region"
+			],
+			[
+				"gen",
+				"GenPopupHTML"
+			],
+			[
+				"mo",
+				"mode"
+			],
+			[
+				"colors",
+				"colorsys"
+			],
+			[
+				"li",
+				"lib"
+			],
+			[
+				"im",
+				"importlib"
+			],
+			[
+				"q",
+				"qtools"
+			],
+			[
+				"reloa",
+				"reload_mods"
+			],
+			[
+				"regex_he",
+				"regex_hex_rgba"
+			],
+			[
+				"c",
+				"ctrl_key"
+			],
+			[
+				"whit",
+				"white"
+			],
+			[
+				"white",
+				"white2"
+			],
+			[
+				"w",
+				"white"
+			],
+			[
+				"wh",
+				"white1"
+			],
+			[
+				"tr",
+				"True"
+			],
+			[
+				"is_",
+				"is_checked"
+			],
+			[
+				"wi",
+				"win"
+			],
+			[
+				"m",
+				"msg"
+			],
+			[
+				"p",
+				"print"
+			],
+			[
+				"CO",
+				"CONF_KEY"
+			],
+			[
+				"DE",
+				"DEBUG"
+			],
+			[
+				"con",
+				"conf_key"
+			],
+			[
+				"su",
+				"sublime"
+			],
+			[
+				"qco",
+				"q_color_conf"
+			],
+			[
+				"pi",
+				"pick"
+			],
+			[
+				"fa",
+				"False"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"on",
+				"on_view_change"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
+				"QSC",
+				"QScope"
+			],
+			[
+				"set",
+				"set_conf_change"
+			],
+			[
+				"cha",
+				"change_key"
+			],
+			[
+				"qc",
+				"q_color_enabled"
+			],
+			[
+				"load",
+				"load_conf"
+			],
+			[
+				"E",
+				"ENABLED"
+			],
+			[
+				"Fa",
+				"False"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"star",
+				"start_positions"
+			],
+			[
+				"las",
+				"last_matched_start_reg"
+			],
+			[
+				"sta",
+				"start_reg"
+			],
+			[
+				"try",
+				"try\tTry/Except"
+			],
+			[
+				"en",
+				"end_positions"
+			],
+			[
+				"end_pos",
+				"end_pos_key"
+			],
+			[
+				"end_po",
+				"end_positions"
+			],
+			[
+				"stat",
+				"start_pos"
+			],
+			[
+				"be",
+				"begin"
+			],
+			[
+				"ho",
+				"hover_zone"
+			],
+			[
+				"end",
+				"end_positions"
+			],
+			[
+				"ma",
+				"marker"
+			],
+			[
+				"sel",
+				"self"
+			],
+			[
+				"run",
+				"run_me"
+			],
+			[
+				"ru",
+				"run_me"
+			],
+			[
+				"V",
+				"view"
+			],
+			[
+				"ve",
+				"view"
+			],
+			[
+				"i",
+				"import"
+			],
+			[
+				"theme",
+				"ThemeManager"
+			],
+			[
+				"th",
+				"theme_path"
+			],
+			[
+				"g",
+				"global"
+			],
+			[
+				"_ge",
+				"_getIconActor"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"none",
+				"None"
+			],
+			[
+				"k",
+				"keepsporting"
+			],
+			[
+				"fle",
+				"flex-wrap\tproperty"
+			],
+			[
+				"bo",
+				"border\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "QColor.py",
+			"settings":
+			{
+				"buffer_size": 18061,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/qutils.py",
+			"settings":
+			{
+				"buffer_size": 12055,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/raphael/Desktop/test.py",
+			"settings":
+			{
+				"buffer_size": 12937,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/linux_colorpicker.py",
+			"settings":
+			{
+				"buffer_size": 1837,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "QColor.sublime-project",
+			"settings":
+			{
+				"buffer_size": 898,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/raphael/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 1844,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/raphael/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 3197,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/raphael/.config/sublime-text-3/Packages/User/QBlack.sublime-color-scheme",
+			"settings":
+			{
+				"buffer_size": 11430,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/raphael/.config/sublime-text-3/Packages/User/QFox.sublime-color-scheme",
+			"settings":
+			{
+				"buffer_size": 9713,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "QColor.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Main.sublime-menu",
+			"settings":
+			{
+				"buffer_size": 939,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Context.sublime-menu",
+			"settings":
+			{
+				"buffer_size": 530,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "QColor.sublime-commands",
+			"settings":
+			{
+				"buffer_size": 89,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Default.sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 148,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"v2"
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"v3"
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check v2"
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check v3"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"setting",
+				"Preferences: Settings"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack re",
+				"Package Control: Remove Package"
+			],
+			[
+				"package list",
+				"Package Control: Install Package"
+			],
+			[
+				"snippet",
+				"Snippet: New Class"
+			],
+			[
+				"snip ",
+				"Snippet: Method"
+			],
+			[
+				"colo",
+				"UI: Select Color Scheme"
+			],
+			[
+				"pa",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"monokai",
+				"Monokai Pro: select theme"
+			],
+			[
+				"package view",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"them",
+				"Monokai Pro: select theme"
+			],
+			[
+				"the",
+				"UI: Select Theme"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"snipp",
+				"Snippet: SublimeProject-Folder"
+			],
+			[
+				"Snippet: ",
+				"Snippet: SublimeProject-Folder"
+			],
+			[
+				"sni",
+				"Snippet: SublimeProject-Folder"
+			],
+			[
+				"packagec",
+				"Package Control: Install Package"
+			],
+			[
+				"packageco",
+				"Package Control: Remove Package"
+			],
+			[
+				"project",
+				"Project Manager"
+			],
+			[
+				"Q",
+				"QTools: QColor Picker "
+			],
+			[
+				"side b",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"keybin",
+				"KeybindingHelper: Show Command Assistant"
+			],
+			[
+				"",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"colors",
+				"UI: Select Color Scheme"
+			],
+			[
+				"synta",
+				"SyntaxFold: Toggle Fold Current"
+			],
+			[
+				"MENU",
+				"View: Toggle Menu"
+			],
+			[
+				"git",
+				"Color Scheme Editor: Goto previous matching scope"
+			],
+			[
+				"paaaacka",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"keys",
+				"KeybindingHelper: Toggle show inputs"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"pac",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"key",
+				"KeybindingHelper: Toggle show inputs"
+			],
+			[
+				"men",
+				"View: Toggle Menu"
+			],
+			[
+				"keyb",
+				"Preferences: Key Bindings"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 213.0,
+		"history":
+		[
+			"view.style()",
+			"view.settings().get('tab_size')",
+			"view.settings().get('identation')",
+			"view.settings().get('space')",
+			"view.settings().get('spaces')",
+			"view.settings().get('tab_size')",
+			"view.settings().get('font_size')",
+			"get_default_setting(view.settings(), \"font_size\")",
+			"view.settings()",
+			"vars(window)",
+			"vars(view)",
+			"vars(window)",
+			"dump(window)",
+			"printr(window)",
+			"print(window)",
+			"print(window.settings().get('font_size'))",
+			"print(view.settings().get('font_size'))",
+			"print(view.settings().get('font-size'))",
+			"print(view.settings().get())",
+			"print(view.settings())",
+			"print view.settings()",
+			"view.settings()",
+			"windows",
+			"(sublime.platform() not in ['osx', \"linux\"])",
+			"(sublime.platform() not in ['osx'])",
+			"(sublime.platform() not in 'osx linu')",
+			"(sublime.platform() not in 'osx linux')",
+			"(sublime.platform() not in 'osx')",
+			"(window.is_menu_visible() not in 'osx')",
+			"window.is_menu_visible() not in 'osx'",
+			"window.is_menu_visible()",
+			"window.set_menu_visible(True)",
+			"window.is_menu_visible()",
+			"sublime.platform()",
+			"sublime.plataform()",
+			"window.set_menu_visible(False)",
+			"window.set_menu_visible(True)",
+			"window.set_menu_visible(False)",
+			"window"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/media/Data/Workspace/Sublime/QColor"
+	],
+	"file_history":
+	[
+		"/media/Data/Workspace/Sublime/QColor/QColor.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
+		"/media/Data/Workspace/Sublime/QColor/Main.sublime-menu",
+		"/home/raphael/.config/sublime-text-3/Packages/User/sublime_jedi.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/Default.sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Default.sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/Default.sublime-mousemap",
+		"/media/Data/Workspace/Sublime/QColor/QColor.py",
+		"/home/raphael/.config/pycodestyle",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/User/QFox.sublime-color-scheme",
+		"/media/Data/Workspace/Sublime/QColor/QColor.sublime-commands",
+		"/home/raphael/.config/sublime-text-3/Packages/User/QBlack.sublime-color-scheme",
+		"/media/Data/Workspace/Sublime/QColor/QColor.sublime-project",
+		"/home/raphael/.config/sublime-text-3/Packages/QThemes/QAdaptive.sublime-theme",
+		"/home/raphael/.config/sublime-text-3/Packages/Theme - Monokai Pro/Monokai Pro (Filter Spectrum).sublime-color-scheme",
+		"/home/raphael/.config/sublime-text-3/Packages/User/CodeFormatter.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Theme - Monokai Pro/Monokai Pro (Filter Spectrum).sublime-theme",
+		"/home/raphael/.config/sublime-text-3/Packages/Theme - Monokai Pro/Theme - Monokai Pro.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Theme - Monokai Pro.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/CodeFormatter/Default (Linux).sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/User/QColor.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/User/QTools.sublime-settings",
+		"/media/Data/Workspace/Sublime/QTools/QColor.py",
+		"/media/Data/Workspace/Sublime/QTools/lib/colorsys2.py",
+		"/media/Data/Workspace/Sublime/QTools/QFold.py",
+		"/home/raphael/.config/sublime-text-3/Packages/User/SublimeProject-Folder.sublime-snippet",
+		"/home/raphael/.config/sublime-text-3/Packages/CodeFormatter/CodeFormatter.sublime-settings",
+		"/media/Data/Workspace/Sublime/QTools/.sublime/QTools.sublime-project",
+		"/home/raphael/.config/sublime-text-3/Packages/ProjectCompletions/README.md",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/Context.sublime-menu",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/Main.sublime-menu",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QTools.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QTools.sublime-commands",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/Default.sublime-keymap",
+		"/media/Data/Workspace/Sublime/QTools/QUtil.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/lib/linux_colorpicker.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QColor.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QStatus.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QScope.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QUtil.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QFold.py",
+		"/media/Data/Workspace/Sublime/QTools/.sublime/QTools.sublime-workspace",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QTools.sublime-project",
+		"/home/raphael/.config/sublime-text-3/Packages/User/Default (Windows).sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/SublimePythonIDE/SublimePython.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/package-metadata.json",
+		"/usr/share/applications/sublime_text.desktop",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/Main.sublime-menu",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/Context.sublime-menu",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QTools.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/Default.sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QUtil.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QStatus.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QScope.py",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/.sublime/QTools.sublime-commands",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QTools.sublime-project",
+		"/usr/share/applications/sublime_text_new_window.desktop",
+		"/usr/share/applications/org.gnome.gedit.desktop",
+		"/home/raphael/.config/sublime-text-3/Packages/SyntaxFold/syntax_fold.sublime-commands",
+		"/home/raphael/.config/sublime-text-3/Packages/QTools/QTools.sublime-keymap",
+		"/home/raphael/.config/sublime-text-3/Packages/SyntaxFold/Default (Linux).sublime-keymap",
+		"/home/raphael/.config/vlc/vlcrc",
+		"/home/raphael/.local/share/vlc/ml.xspf",
+		"/home/raphael/Downloads/TeamSpeak3-Client-linux_amd64-3.2.5.run",
+		"/home/raphael/.mozilla/firefox/w197fpvg.qqq/chrome/userContent.css",
+		"/home/raphael/.mozilla/firefox/w197fpvg.qqq/chrome/userChrome.xml",
+		"/home/raphael/.mozilla/firefox/w197fpvg.qqq/chrome/q_scrollbar.as.css",
+		"/home/raphael/Desktop/dropped text.txt",
+		"/home/raphael/.mozilla/firefox/v23zh51t.xxx/chrome/userContent.css",
+		"/usr/share/applications/gnome-online-accounts-panel.desktop",
+		"/opt/sublime_text/changelog.txt",
+		"/media/raphael/Files/UbuntuBackup/raphael/Software/sublime_text_3/sublime_text.desktop",
+		"/home/raphael/.config/sublime-text-3/Packages/PackageResourceViewer/PackageResourceViewer.sublime-settings",
+		"/media/Data/Dropbox/Link to Wallpapers",
+		"/media/Data/Workspace/Firefox-Extensions/Photophobia/v1.3/manifest.json",
+		"/home/raphael/.config/redshift.conf",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/gtk-2.0/buttons.rc",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/_common.scss",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/_colors.scss",
+		"/home/raphael/Downloads/cinnamon-4.0-maintenance/data/theme/cinnamon.css",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/gtk-2.0/gtkrc",
+		"/media/Data/NET ROUTER.txt",
+		"/home/raphael/.local/share/gedit/accels",
+		"/usr/share/themes/Default/gtk-2.0-key/gtkrc",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/gtk-2.0/Makefile.am",
+		"/home/raphael/.config/sublime-text-3/Packages/User/syntax_fold.sublime-settings",
+		"/home/raphael/.config/sublime-text-3/Packages/SyntaxFold/syntax_fold.sublime-settings",
+		"/home/raphael/Desktop/_colors.scss",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/_drawing.scss",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/parse-sass.sh",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitre/gtk-3.0/_colors.scss",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/gtk-contained.css",
+		"/home/raphael/Downloads/zuki-themes-master/Zukitwo/gtk-3.0/gtk-contained.scss",
+		"/home/raphael/.bash_logout",
+		"/home/raphael/Downloads/arc-theme-master_old/HACKING.md",
+		"/home/raphael/Downloads/arc-theme-master_old/package.json",
+		"/home/raphael/Downloads/arc-theme-master_old/.gitignore",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/gtk-3.0/sass/_colors.scss.thpl",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/3.20/sass/_colors.scss.thpl",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/gtk-3.0/assets.txt",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/3.20/sass/_colors.scss",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/3.20/sass/_drawing.scss",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/3.20/sass/_applications.scss",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/_colors.scss.thpl",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/common.am",
+		"/home/raphael/Downloads/arc-theme-master/autogen.sh",
+		"/home/raphael/Downloads/arc-theme-master/change_color.sh",
+		"/home/raphael/Downloads/arc-theme-master/scripts/mix.sh",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-2.0/Makefile.am",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-2.0/main.rc",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-2.0/dark/gtkrc",
+		"/media/Data/Workspace/Gnome/Themes/Arc-Gray/index.theme",
+		"/home/raphael/Downloads/arc-theme-master/arc-theme-upgrade",
+		"/home/raphael/Downloads/Juno-master/README.md",
+		"/home/raphael/Downloads/tmp.css",
+		"/home/raphael/Downloads/arc-theme-master/package.json",
+		"/home/raphael/Downloads/arc-theme-master/common/gtk-3.0/3.20/sass/_lightdm.scss",
+		"/home/raphael/Downloads/arc-theme-master/AUTHORS",
+		"/home/raphael/Downloads/arc-theme-master/m4/arc-gnome.m4",
+		"/home/raphael/Downloads/arc-theme-master/m4/arc-enable.m4",
+		"/home/raphael/Downloads/arc-theme-master/gulpfile.js",
+		"/home/raphael/Downloads/arc-theme-master/common/metacity-1/metacity-theme-3.xml",
+		"/media/Data/Workspace/Gnome/Themes/QShades/cinnamon/make.sh",
+		"/media/Data/Workspace/Gnome/Themes/Mint-y/src/gtk-3.0/sass/gtk.scss",
+		"/media/Data/Workspace/Gnome/Themes/Mint-y/.gitignore",
+		"/media/Data/Workspace/Gnome/Themes/Mint-y/README.md"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 355.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"yellowis",
+			"region",
+			"indent"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "QColor.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11248,
+								11248
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/Python/Python.sublime-syntax",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3989.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lib/qutils.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12055,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11564,
+								11564
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/Python/Python.sublime-syntax",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2340.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/raphael/Desktop/test.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11743,
+								11743
+							]
+						],
+						"settings":
+						{
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1740.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/linux_colorpicker.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								169,
+								169
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/Python/Python.sublime-syntax",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "QColor.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 898,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								584,
+								599
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/raphael/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1844,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/QFox.sublime-color-scheme",
+							"edit_settings_other_view_id": 84,
+							"edit_settings_view": "user",
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 740.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/raphael/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3197,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2457,
+								2457
+							]
+						],
+						"settings":
+						{
+							"edit_settings_other_view_id": 101,
+							"edit_settings_view": "user",
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/raphael/.config/sublime-text-3/Packages/User/QBlack.sublime-color-scheme",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6399,
+								6399
+							]
+						],
+						"settings":
+						{
+							"q_color":
+							{
+								"_debug": false,
+								"active": false,
+								"enabled": false
+							},
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3531.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/raphael/.config/sublime-text-3/Packages/User/QFox.sublime-color-scheme",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								263,
+								263
+							]
+						],
+						"settings":
+						{
+							"q_color":
+							{
+								"_debug": false,
+								"active": false,
+								"enabled": false
+							},
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "QColor.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PackageDev/Package/Sublime Text Settings/Sublime Text Settings.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Main.sublime-menu",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								611,
+								611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PackageDev/Package/Sublime Text Menu/Sublime Text Menu.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "Context.sublime-menu",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 530,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								223,
+								223
+							]
+						],
+						"settings":
+						{
+							"gutter": false,
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 12,
+					"file": "QColor.sublime-commands",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 89,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Default.sublime-keymap",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"old_syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 44.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.505697479225,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.620846873262,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 139.0
+	},
+	"output.exec":
+	{
+		"height": 139.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "QColor.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sett",
+				"~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/media/Data/Workspace/Firefox-Extensions/chrome/Firefox Chrome.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 183.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}

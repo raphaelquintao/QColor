@@ -1,0 +1,22 @@
+[
+  // { "caption": "-", "id": "_q_color" },
+  {
+    "caption": "QColor Debug",
+    "command": "q_color_debug",
+    "checkbox": true
+  },
+  {
+    "caption": "QColor Show",
+    "command": "q_color_show",
+    "checkbox": true
+  },
+  {
+    "caption": "QColor Picker",
+    "command": "q_color_picker"
+  },
+  { "command": "q_color_converter", "args": { "mode": "open" } },
+
+  // { "command": "q_color_converter", "args": { "mode": "rgb" } },
+  // { "command": "q_color_converter", "args": { "mode": "hsl" } },
+  { "caption": "-", },
+]

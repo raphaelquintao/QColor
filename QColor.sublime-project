@@ -1,0 +1,39 @@
+// https://www.sublimetext.com/docs/3/projects.html
+
+{
+    "folders": [
+        {
+            "path": ".",
+            "follow_symlinks": "true"
+        }
+
+    ],
+    "settings":
+    {
+        "tab_size": 4,
+        "margin": 0,
+        "word_wrap": "auto",
+        "fold_buttons": true,
+        "fade_fold_buttons": true,
+        // "block_caret": true,
+        "show_full_path": false,
+        "draw_indent_guides": true,
+        "show_panel_on_build": true,
+        "color_scheme": "Packages/User/QFox.sublime-color-scheme",
+        // "color_scheme": "Packages/User/QBlack.sublime-color-scheme",
+        // "font_options": [
+            // "no_liga",
+            // "no_clig",
+            // "no_calt",
+            // "no_antialias",
+            // "gray_antialias"
+        // ]
+
+
+    },
+    // "build_systems": [
+    // {
+    //     "name": "List",
+    //     "shell_cmd": "ls -l"
+    // }]
+}
