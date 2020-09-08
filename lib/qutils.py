@@ -9,6 +9,8 @@ class QColorUtils(object):
     in_mode = ""
 
     hsl_precision = 3
+    hex_upper = True
+    named_colors = False
 
 
     svg_colors = {
@@ -162,18 +164,22 @@ class QColorUtils(object):
     }
 
     regex = {
-        "named": r"\b(" + "|".join(list(QColorUtils.svg_colors.keys())) + r")\b",
         "hex": r"\#([a-fA-F0-9]{8}|[a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b",
         "rgb" : r"rgb\s*?\(\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?\)",
         "rgba" : r"rgba\s*?\(\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(000|0?\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\s*?,\s*?(0|0*\.\d+|1|1.0*)\s*?\)",
         "hsl": r"hsl\s*?\(\s*?((?:000|0?\d{1,2}|[1-2]\d\d|3[0-5]\d|360)(?:\.\d*)?)\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?\)",
         "hsla": r"hsla\s*?\(\s*?((?:000|0?\d{1,2}|[1-2]\d\d|3[0-5]\d|360)(?:\.\d*)?)\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?(0|0*\.\d+|1|1.0*)\s*?\)",
     }
+    
 
 
     # Static Functions
-    def set_conf(hsl_float):
+    def set_conf(hsl_float = False, hex_upper_case= False, named_color = False):
         QColorUtils.hsl_precision =  3 if hsl_float else 0
+        QColorUtils.hex_upper =  True if hex_upper_case else False
+        QColorUtils.named_colors =  True if named_color else False
+        if QColorUtils.named_colors:
+            QColorUtils.regex.update({"named": r"\b(" + "|".join(list(QColorUtils.svg_colors.keys())) + r")\b"})
         
     def rgb_to_hsl(r, g, b, normalized = False):
         if not normalized:
@@ -255,11 +261,17 @@ class QColorUtils(object):
             match = re.search(regex_hex, color, re.IGNORECASE)
             if(match):
                 value = match.group(1)
-                (self.r, self.g, self.b) = int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
+                
+                if len(value) == 3:
+                    (self.r, self.g, self.b) = int(value[0:1] + value[0:1], 16), int(value[1:2] + value[1:2], 16), int(value[2:3] + value[2:3], 16)
+                    # self.a = int(value[6:8], 16) / 255
 
-                if len(value) == 8:
+                    self.alpha = True
+                elif len(value) == 8:
                     self.a = int(value[6:8], 16) / 255
                     self.alpha = True
+                else:
+                    (self.r, self.g, self.b) = int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
             self.in_mode = 'hex'
 
         elif color.startswith('rgba'):
@@ -293,7 +305,7 @@ class QColorUtils(object):
         resp = "#%02x%02x%02x" % (round(self.r), round(self.g), round(self.b))
         if (self.alpha and alpha) or (not self.alpha and alpha):
             resp += "%02x" % round(self.a * 255)
-        return resp.upper()
+        return resp.upper() if self.hex_upper else resp.lower()
 
     def getRGBA(self):
         return "rgba({0:g}, {1:g}, {2:g}, {3:g})".format(round(self.r, 0), round(self.g, 0), round(self.b, 0), round(self.a, 3))

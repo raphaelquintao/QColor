@@ -1,8 +1,8 @@
 [
   // { "caption": "-", "id": "_q_color" },
   {
-    "caption": "QColor Debug",
-    "command": "q_color_debug",
+    // "caption": "QColor Enabled",
+    "command": "q_color_enabled",
     "checkbox": true
   },
   {

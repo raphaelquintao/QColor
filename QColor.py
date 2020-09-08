@@ -12,8 +12,16 @@ import imp
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
 
+def SETTINGS():
+    return sublime.load_settings(SETTINGSFILE)
+
 def DEBUG():
-    return sublime.load_settings(SETTINGSFILE).get(CONF_KEY, {}).get("_debug", False)
+    return sublime.load_settings(SETTINGSFILE).get("__debug", False)
+
+def ENABLED():
+    return sublime.load_settings(SETTINGSFILE).get("_enabled", False)
+
+
 
 
 # LIBS
@@ -137,7 +145,7 @@ def GenPopupHTML(color, colors, reg):
         .line    { font-size: 1.0em; line-height: 1em; margin: 0.3em var(--margin); }
         .color   { background-color: color(black a(0.0)); padding: 0.0em; border-bottom: 1px solid var(--border-link); }
         .copy    { position: relative; font-size: 0.7em; bottom:0.15em; color: color(var(--foreground) a(0.7));
-                   background-color: var(--bg-hl); padding: 0.1em; }
+                   background-color: var(--bg-hl); padding: 0.1em 0.2em; }
 
 
         .header  { display: block; padding: var(--margin); margin: 0.0em 0.0em 0.0em 0.0em;
@@ -159,13 +167,14 @@ def GenPopupHTML(color, colors, reg):
 
     return html
 
+
 def popup_navigate(view, arg):
     (cmd, reg, value) = arg.split(':')
     print(cmd, reg, value)
     if cmd == 'r':
         view.run_command("q_color_converter", {"reg": reg, "mode": "r", "value": value})
-    # elif cmd == 'pick':
-        # view.run_command("q_color_picker", {"reg": reg})
+    elif cmd == 'pick':
+        view.run_command("q_color_picker", {"reg": reg})
 
     elif cmd == 'copy':
         sublime.set_clipboard(value)
@@ -219,15 +228,16 @@ class QPicker(object):
         
 
 class QColor(sublime_plugin.ViewEventListener):
-    conf_key = "q_color"
-    ctrl_key = "enabled"
+    enabled = False
+    key_conf = CONF_KEY 
+    key_ctrl = "active"
 
     
 
 
     def __init__(self, view):
         self.view = view
-        self.view.QColor = self
+        self.view.QColor = self        
         self.set_conf_change()
         self.on_conf_change()
 
@@ -235,27 +245,28 @@ class QColor(sublime_plugin.ViewEventListener):
         return sublime.load_settings(SETTINGSFILE)
 
     def isEnabled(self):
-        enabled = False
-        if self.view.settings().has(self.conf_key):
-            _conf = self.view.settings().get(self.conf_key)
-        elif self.settings().has(self.conf_key):
-            _conf = self.settings().get(self.conf_key)
-        
-        enabled = _conf.get(self.ctrl_key, False)
-        
-        return enabled
+        if not ENABLED(): return False
+        _conf = self.view.settings().get(self.key_conf, SETTINGS().get(self.key_conf, {}))
+        return _conf.get(self.key_ctrl, True)
     
 
     def start(self):
-        q_color_enabled = self.isEnabled()
 
         # Load Settings
+        self.enabled = SETTINGS().get('enabled', False)
         self.circular_phantom = self.settings().get('circular_phantom', False)
+        self.hover_preview = self.settings().get('hover_preview', False)
+        self.auto_close_popups = self.settings().get('auto_close_popups', True)
+        named_colors = self.settings().get('named_colors', False)
         hsl_float = self.settings().get('hsl_float', True)
+        hex_upper = self.settings().get('hex_upper_case', False)
 
-        QColorUtils.set_conf(hsl_float)
+        
 
-        self.pset = sublime.PhantomSet(self.view, self.conf_key)
+
+        QColorUtils.set_conf(hsl_float, hex_upper, named_colors)
+
+        self.pset = sublime.PhantomSet(self.view, self.key_conf)
 
         # Restart Binds
         self.set_view_change()
@@ -264,6 +275,7 @@ class QColor(sublime_plugin.ViewEventListener):
 
 
         
+
         
 
     # File Conf Handlers
@@ -276,12 +288,12 @@ class QColor(sublime_plugin.ViewEventListener):
     def set_conf_change(self):
         # print("QColor", "set_conf_change")
         self.clear_conf_change()
-        key_id = "{0}_{1}".format(self.conf_key, self.view.id())
+        key_id = "{0}_{1}".format(self.key_conf, self.view.id())
         self.settings().add_on_change(key_id, self.on_conf_change)
 
     def clear_conf_change(self):
         # print("QColor", "clear_conf_change")
-        key_id = "{0}_{1}".format(self.conf_key, self.view.id())
+        key_id = "{0}_{1}".format(self.key_conf, self.view.id())
         self.settings().clear_on_change(key_id)
 
 
@@ -293,11 +305,11 @@ class QColor(sublime_plugin.ViewEventListener):
 
     def set_view_change(self):
         self.clear_view_change()
-        key_id = "{0}_{1}".format(self.conf_key, self.view.id())
+        key_id = "{0}_{1}".format(self.key_conf, self.view.id())
         self.view.settings().add_on_change(key_id, self.on_view_change) 
 
     def clear_view_change(self):
-        key_id = "{0}_{1}".format(self.conf_key, self.view.id())
+        key_id = "{0}_{1}".format(self.key_conf, self.view.id())
         self.view.settings().clear_on_change(key_id)
 
 
@@ -322,7 +334,7 @@ class QColor(sublime_plugin.ViewEventListener):
     def phantom_show(self, view, reg):
         selected = view.substr(reg).strip()
 
-        view.add_phantom(self.conf_key, 
+        view.add_phantom(self.key_conf, 
                          sublime.Region(reg.b, reg.b), 
                          GenPhantomHTML(selected, reg, self.circular_phantom), 
                          sublime.LAYOUT_INLINE,
@@ -332,8 +344,8 @@ class QColor(sublime_plugin.ViewEventListener):
 
     def show_phantoms(self):
         # print("QColor", "show_phantoms")
-        self.view.erase_regions(self.conf_key)
-        self.view.erase_phantoms(self.conf_key)
+        self.view.erase_regions(self.key_conf)
+        self.view.erase_phantoms(self.key_conf)
 
 
         if not self.isEnabled(): return False
@@ -343,7 +355,7 @@ class QColor(sublime_plugin.ViewEventListener):
 
     # "region.redish", "region.orangish", "region.yellowish", "region.greenish", "region.bluish", 
     # "region.purplish", "region.pinkish", "region.blackish"
-        self.view.add_regions(self.conf_key, c_regions, "region.purplish", "", 
+        self.view.add_regions(self.key_conf, c_regions, "region.purplish", "", 
                               # sublime.DRAW_EMPTY | 
                               # sublime.HIDE_ON_MINIMAP | 
                               # sublime.DRAW_EMPTY_AS_OVERWRITE | 
@@ -381,15 +393,15 @@ class QColor(sublime_plugin.ViewEventListener):
         # self.view.hide_popup()
 
     # def on_hover(self, point, hover_zone):
-    #     if self.isEnabled():
+    #     if self.hover_preview:
     #         (in_region, region) = self.find_region(point)
     #         if in_region:
+    #             print(point, hover_zone)
     #         # popup_show(self.view, region)
     #             self.view.erase_phantoms(self.conf_key)
     #             self.phantom_show(self.view, region)
     #         else: self.view.erase_phantoms(self.conf_key)
 
-    #         print(point, hover_zone)
 
 
 
@@ -409,105 +421,76 @@ class QColor(sublime_plugin.ViewEventListener):
 # --- Commands
 
 class QColorDebug(sublime_plugin.ApplicationCommand):
-    conf_key = CONF_KEY
-    ctrl_key = '_debug'
+    key_conf = CONF_KEY
+    key_ctrl = '__debug'
 
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
 
-    def run(self):
-        if self.settings().has(self.conf_key):
-            q_conf = self.settings().get(self.conf_key)
-            q_conf[self.ctrl_key] = not self.is_checked()
-            self.settings().set(self.conf_key, q_conf)
+    def run(self, toggle = True):
+        if toggle:
+            value = self.settings().get(self.key_ctrl, False)
+            self.settings().set(self.key_ctrl, not value)
             sublime.save_settings(SETTINGSFILE)
-            print(q_conf)
-        else:
-            print("NOT FOUND")
         
-    def is_checked(self):
-        return self.settings().get(self.conf_key, {}).get(self.ctrl_key, False)
 
+    def is_checked(self):
+        return self.settings().get(self.key_ctrl, False)
+
+
+class QColorEnabled(sublime_plugin.ApplicationCommand):
+    key_conf = CONF_KEY
+    key_ctrl = '_enabled'
+
+    def settings(self):
+        return sublime.load_settings(SETTINGSFILE)
+
+    def run(self, toggle = True):
+        if toggle:
+            value = self.settings().get(self.key_ctrl, False)
+            self.settings().set(self.key_ctrl, not value)
+            sublime.save_settings(SETTINGSFILE)
+
+
+    
+    def description(self):
+        return ""
+
+    def is_checked(self):
+        return self.settings().get(self.key_ctrl, False)
 
 
 
 class QColorShow(sublime_plugin.ApplicationCommand):
-    conf_key = CONF_KEY
-    ctrl_key = 'enabled'
+    key_conf = CONF_KEY
+    key_ctrl = 'active'
+
 
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
 
+    def active_view(self):
+        return sublime.active_window().active_view()
+
     def run(self): 
         print("QColors Command")
-        view = sublime.active_window().active_view()
-        _enabled = False
+
+        _conf = self.active_view().settings().get(self.key_conf, self.settings().get(self.key_conf, {}))        
+        _conf[self.key_ctrl] = not self.is_checked()
         
-        if view.settings().has(self.conf_key):
-            _conf = view.settings().get(self.conf_key, {})
-            _enabled = view.settings().get(self.conf_key, {}).get(self.ctrl_key, False)
-            
-        elif self.settings().has(self.conf_key):
-            _conf = self.settings().get(self.conf_key)
-            _enabled = _conf.get(self.ctrl_key, False)
-            
-        _conf[self.ctrl_key] = not _enabled
-        view.settings().set(self.conf_key, _conf)
-        # print("ok", view.settings().get(self.conf_key))
+        self.active_view().settings().set(self.key_conf, _conf)
 
-
+    def description(self):
+        return ""
+        
     def is_checked(self):
-        view = sublime.active_window().active_view()
-        _enabled = False
-
-        if view.settings().has(self.conf_key):
-            _conf = view.settings().get(self.conf_key)
-        elif self.settings().has(self.conf_key):
-            _conf = self.settings().get(self.conf_key)
-
-        try: _enabled = _conf.get(self.ctrl_key, False)
-        except: pass
-        
-        return _enabled
-
-
-class QColorPicker(sublime_plugin.TextCommand):
-
-    def run(self, edit, reg = None): 
-        print("QColor Picker")
-        sel = self.view.sel()
-        region = sel[0]
-        if reg:
-            tmp = eval(reg)
-            region = sublime.Region(tmp[0], tmp[1])
-            
-        else:
-            regions = QColor.getColorRegions(self.view)
-            for creg in regions:
-                if creg.contains(sel[0]):
-                    region = creg
-                    break
-
-        if region != None:
-            color = self.view.substr(region).strip()
-
-            converter = QColorUtils().parse(color)
-            in_mode = converter.in_mode or "rgba"
-            color = converter.getRGB()
-            # print(color, in_mode)
-            # return
-
-            ncolor = QPicker().pick(self.view.window(), color)
-            if ncolor:
-                sel.clear()
-                sel.add(region)
-                ncolor = converter.parse(ncolor).get(in_mode)
-                print("NEW COLOR", ncolor)
-                self.view.replace(edit, region, ncolor)
+        return self.active_view().settings().get(self.key_conf, {}).get(self.key_ctrl, False)
 
     def is_enabled(self):
-        binfile = os.path.join(sublime.packages_path(), binpath)
-        return os.path.isfile(binfile)
+        return ENABLED()
+
+    def is_visible(self):
+        return ENABLED()
 
 
 class QColorConverter(sublime_plugin.TextCommand):
@@ -549,17 +532,54 @@ class QColorConverter(sublime_plugin.TextCommand):
                 popup_show(self.view, nreg)
 
         
-    def description(self, reg = None, mode = None, value = None):
-        (in_region, region) = self.in_region(reg)
-
-        if in_region and mode not in [None, "open"]:
-            color = self.view.substr(region).strip()
-            return QColorUtils().parse(color).get(mode)
-        
+    def description(self):
         return ""
 
     def is_enabled(self, reg = None, mode = None, value = None):
         (in_region, region) = self.in_region(reg)
-        return in_region
+        return ENABLED() and in_region
+
+    def is_visible(self):
+        return ENABLED()
 
 
+class QColorPicker(sublime_plugin.TextCommand):
+
+    def run(self, edit, reg = None): 
+        print("QColor Picker")
+        sel = self.view.sel()
+        region = sel[0]
+        if reg:
+            tmp = eval(reg)
+            region = sublime.Region(tmp[0], tmp[1])
+            
+        else:
+            regions = QColor.getColorRegions(self.view)
+            for creg in regions:
+                if creg.contains(sel[0]):
+                    region = creg
+                    break
+
+        if region != None:
+            color = self.view.substr(region).strip()
+
+            converter = QColorUtils().parse(color)
+            in_mode = converter.in_mode or "rgba"
+            color = converter.getRGB()
+            # print(color, in_mode)
+            # return
+
+            ncolor = QPicker().pick(self.view.window(), color)
+            if ncolor:
+                sel.clear()
+                sel.add(region)
+                ncolor = converter.parse(ncolor).get(in_mode)
+                print("NEW COLOR", ncolor)
+                self.view.replace(edit, region, ncolor)
+
+    def is_enabled(self):
+        binfile = os.path.join(sublime.packages_path(), binpath)
+        return ENABLED() and os.path.isfile(binfile)
+
+    def is_visible(self):
+        return ENABLED()

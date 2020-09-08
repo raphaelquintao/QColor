@@ -4,8 +4,9 @@
   "id": "q_color",
   "mnemonic": "C",
   "children": [
-    { "caption": "QColor Debug", "command": "q_color_debug", "checkbox": true },
-    { "caption": "QColor Show", "command": "q_color_show", "checkbox": true },
+    { "caption": "Debug", "command": "q_color_debug", "checkbox": true },
+    { "caption": "Enabled", "command": "q_color_enabled", "checkbox": true },
+    { "caption": "Show", "command": "q_color_show", "checkbox": true },
     { "caption": "QColor Picker", "command": "q_color_picker" },
     { "caption": "QColor Converter", "command": "q_color_converter" },
 

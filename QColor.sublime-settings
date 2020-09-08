@@ -1,11 +1,14 @@
 {
+  "__debug": false,
+  "_enabled": true,
   "q_color":
   {
-    "_debug": false,
-    "active": false,
-    "enabled": false
+    "active": false
   },
-  "circular_phantom": false,
+  "circular_phantom": true,
   "hsl_float": true,
   "hex_upper_case": true,
+  "hover_preview": true,
+  "auto_close_popups": true,
+  "named_colors": false
 }

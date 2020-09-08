@@ -4,20 +4,76 @@
 		"selected_items":
 		[
 			[
-				"co",
-				"colors\tstatement"
-			],
-			[
-				"get",
-				"getNamed\tfunction"
+				"CO",
+				"CONF_KEY\tstatement"
 			],
 			[
 				"re",
 				"return\tkeyword"
 			],
 			[
+				"ke",
+				"key_ctrl\tstatement"
+			],
+			[
+				"fa",
+				"False\tkeyword"
+			],
+			[
+				"se",
+				"sett\tstatement"
+			],
+			[
+				"set",
+				"sett\tstatement"
+			],
+			[
+				"el",
+				"else\tkeyword"
+			],
+			[
+				"na",
+				"named_colors\tstatement"
+			],
+			[
+				"I",
+				"IGNORECASE\tstatement"
+			],
+			[
+				"de",
+				"defs\tMethod"
+			],
+			[
+				"key",
+				"key_ctrl"
+			],
+			[
+				"no",
+				"not"
+			],
+			[
+				"key_c",
+				"key_conf"
+			],
+			[
+				"ac",
+				"active_view"
+			],
+			[
+				"key_",
+				"key_ctrl"
+			],
+			[
 				"he",
-				"hex\tstatement"
+				"hex_upper"
+			],
+			[
+				"co",
+				"colors\tstatement"
+			],
+			[
+				"get",
+				"getNamed\tfunction"
 			],
 			[
 				"ge",
@@ -80,14 +136,6 @@
 				"circular_phantom"
 			],
 			[
-				"se",
-				"self"
-			],
-			[
-				"el",
-				"else"
-			],
-			[
 				"hs",
 				"hsl_float"
 			],
@@ -134,10 +182,6 @@
 			[
 				"fi",
 				"find_region"
-			],
-			[
-				"no",
-				"Not"
 			],
 			[
 				"in",
@@ -264,10 +308,6 @@
 				"print"
 			],
 			[
-				"CO",
-				"CONF_KEY"
-			],
-			[
 				"DE",
 				"DEBUG"
 			],
@@ -288,10 +328,6 @@
 				"pick"
 			],
 			[
-				"fa",
-				"False"
-			],
-			[
 				"fo",
 				"format"
 			],
@@ -300,16 +336,8 @@
 				"on_view_change"
 			],
 			[
-				"de",
-				"debug"
-			],
-			[
 				"QSC",
 				"QScope"
-			],
-			[
-				"set",
-				"set_conf_change"
 			],
 			[
 				"cha",
@@ -451,7 +479,7 @@
 			"file": "QColor.py",
 			"settings":
 			{
-				"buffer_size": 18061,
+				"buffer_size": 18703,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -460,7 +488,7 @@
 			"file": "lib/qutils.py",
 			"settings":
 			{
-				"buffer_size": 12055,
+				"buffer_size": 12720,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -488,6 +516,15 @@
 			"settings":
 			{
 				"buffer_size": 898,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 36,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -529,10 +566,28 @@
 			}
 		},
 		{
+			"file": "/home/raphael/.config/sublime-text-3/Packages/User/QColor.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 41,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "QColor.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 165,
+				"buffer_size": 218,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Context.sublime-menu",
+			"settings":
+			{
+				"buffer_size": 537,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -540,18 +595,9 @@
 			"file": "Main.sublime-menu",
 			"settings":
 			{
-				"buffer_size": 939,
+				"buffer_size": 1003,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Context.sublime-menu",
-			"settings":
-			{
-				"buffer_size": 530,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -835,6 +881,7 @@
 	],
 	"file_history":
 	[
+		"/media/Data/Workspace/Sublime/QColor/QColor.py",
 		"/media/Data/Workspace/Sublime/QColor/QColor.sublime-settings",
 		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/sublime_jedi.sublime-settings",
 		"/media/Data/Workspace/Sublime/QColor/Main.sublime-menu",
@@ -842,7 +889,6 @@
 		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/Default.sublime-keymap",
 		"/home/raphael/.config/sublime-text-3/Packages/User/Default.sublime-keymap",
 		"/home/raphael/.config/sublime-text-3/Packages/Jedi - Python autocompletion/Default.sublime-mousemap",
-		"/media/Data/Workspace/Sublime/QColor/QColor.py",
 		"/home/raphael/.config/pycodestyle",
 		"/home/raphael/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
 		"/home/raphael/.config/sublime-text-3/Packages/User/QFox.sublime-color-scheme",
@@ -966,7 +1012,7 @@
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -980,6 +1026,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"settings().get",
+			"isEnabled()",
+			"q_color_enabled",
+			"set_conf()",
 			"yellowis",
 			"region",
 			"indent"
@@ -1000,7 +1050,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -1009,31 +1059,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18061,
+						"buffer_size": 18703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11248,
-								11248
+								8981,
+								8981
 							]
 						],
 						"settings":
 						{
-							"old_syntax": "Packages/Python/Python.sublime-syntax",
 							"show_definitions": false,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3989.0,
+						"translation.y": 3600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1042,15 +1090,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12055,
+						"buffer_size": 12720,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11564,
-								11564
+								6045,
+								6045
 							]
 						],
 						"settings":
@@ -1063,10 +1111,10 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2340.0,
+						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1097,7 +1145,7 @@
 						"translation.y": 1740.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1129,7 +1177,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1145,8 +1193,8 @@
 						"selection":
 						[
 							[
-								584,
-								599
+								178,
+								178
 							]
 						],
 						"settings":
@@ -1160,11 +1208,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Git Formats/Git Ignore.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "/home/raphael/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
@@ -1193,11 +1269,11 @@
 						"translation.y": 740.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "/home/raphael/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
 					"semi_transient": false,
 					"settings":
@@ -1226,11 +1302,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "/home/raphael/.config/sublime-text-3/Packages/User/QBlack.sublime-color-scheme",
 					"semi_transient": false,
 					"settings":
@@ -1263,11 +1339,11 @@
 						"translation.y": 3531.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "/home/raphael/.config/sublime-text-3/Packages/User/QFox.sublime-color-scheme",
 					"semi_transient": false,
 					"settings":
@@ -1299,22 +1375,22 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 13,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 9,
-					"file": "QColor.sublime-settings",
+					"buffer": 10,
+					"file": "/home/raphael/.config/sublime-text-3/Packages/User/QColor.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 165,
+						"buffer_size": 41,
 						"regions":
 						{
 						},
@@ -1333,29 +1409,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "Main.sublime-menu",
+					"buffer": 11,
+					"file": "QColor.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 939,
+						"buffer_size": 218,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								611,
-								611
+								218,
+								218
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PackageDev/Package/Sublime Text Menu/Sublime Text Menu.sublime-syntax",
+							"syntax": "Packages/PackageDev/Package/Sublime Text Settings/Sublime Text Settings.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1363,24 +1439,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "Context.sublime-menu",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 530,
+						"buffer_size": 537,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								223,
-								223
+								84,
+								84
 							]
 						],
 						"settings":
@@ -1396,7 +1472,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Main.sublime-menu",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1003,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								251
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PackageDev/Package/Sublime Text Menu/Sublime Text Menu.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1406,7 +1512,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "QColor.sublime-commands",
 					"semi_transient": false,
 					"settings":
@@ -1431,11 +1537,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 15,
 					"file": "Default.sublime-keymap",
 					"semi_transient": false,
 					"settings":
@@ -1462,7 +1568,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 14,
 					"type": "text"
 				}
 			]
@@ -1470,7 +1576,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -1502,7 +1608,7 @@
 		"cols":
 		[
 			0.0,
-			0.505697479225,
+			0.581862346625,
 			1.0
 		],
 		"rows":
@@ -1529,7 +1635,7 @@
 	"project": "QColor.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1567,7 +1673,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 		"last_automatic_layout":
@@ -1596,7 +1702,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 183.0,
+	"side_bar_width": 213.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
