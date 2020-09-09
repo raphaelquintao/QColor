@@ -14,6 +14,7 @@
         "margin": 0,
         "word_wrap": "auto",
         "fold_buttons": true,
+        "show_panel_on_build": false,
         "fade_fold_buttons": true,
         // "block_caret": true,
         "show_full_path": false,
@@ -22,11 +23,11 @@
         "color_scheme": "Packages/User/QFox.sublime-color-scheme",
         // "color_scheme": "Packages/User/QBlack.sublime-color-scheme",
         // "font_options": [
-            // "no_liga",
-            // "no_clig",
-            // "no_calt",
-            // "no_antialias",
-            // "gray_antialias"
+        // "no_liga",
+        // "no_clig",
+        // "no_calt",
+        // "no_antialias",
+        // "gray_antialias"
         // ]
 
 

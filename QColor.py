@@ -34,11 +34,14 @@ libdir = os.path.join(directory, 'lib')
 
 
 if sublime.platform() == 'osx':
-    binpath = os.path.join(libdir, 'osx_colorpicker')
+    # binpath = os.path.join(libdir, 'osx_colorpicker')
+    binpath = os.path.join(libdir, 'picker.py')
 elif sublime.platform() == 'linux':
-    binpath = os.path.join(libdir, 'linux_colorpicker.py')
+    # binpath = os.path.join(libdir, 'linux_colorpicker.py')
+    binpath = os.path.join(libdir, 'picker.py')
 else:
-    binpath = os.path.join(libdir, 'win_colorpicker.exe')
+    # binpath = os.path.join(libdir, 'win_colorpicker.exe')
+    binpath = os.path.join(libdir, 'picker.py')
 
 
 def plugin_loaded():

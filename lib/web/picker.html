@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+   <head lang="en">
+      <meta charset="UTF-8"/>
+      <style>
+                        html, body {
+                            background-color: #333;
+                            color: #f1f1f1;
+                            margin: 0;
+                            /*position: relative;*/
+                            height: calc(100% - 1px);
+                        }
+                        body {
+                            border: 1px solid black;
+                            display: flex;
+                            flex-direction: column;
+                            align-content: flex-end;
+                            /*justify-content: space-around;*/
+                        }
+                      #response-container {
+                          display: none;
+                          padding: 0.1rem 0.4em;
+                          margin: 0.5rem 2rem;
+                          font-size: 120%;
+                          border: 2px dashed #ccc;
+                          text-align: center;
+                      }
+                  
+                      label {
+                          margin-left: 0.3rem;
+                          margin-right: 0.3rem;
+                      }
+                  
+                    button {
+                        all: unset;
+                        height: 25px;
+                        font-size: 100%;
+                        margin: 0;
+                        padding: 0px 5px;
+                        /*padding: 0.5rem;*/
+                        /*margin: 0.3rem;*/
+                        background: rgba(0, 0, 0, 0.2);
+                        border: 1px solid rgba(0, 0, 0, 0.9);
+                    }
+                    button + button {
+                        margin-left: 5px;
+                    }
+                    button:hover {
+                        background: rgba(0, 0, 0, 0.5);
+                        border: 1px solid #000;
+                    }
+                    button:active {
+                        background: rgba(0, 0, 0, 0.7);
+                        border: 1px solid #000;
+                    }
+                    input {
+                        font-size: 100%;
+                        border: 0px solid black;
+                        background: inherit;
+                        color: inherit;
+                        margin: 5px 5px;
+                        padding: 5px 8px;
+                        background: rgba(0, 0, 0, 0.2);
+                        border: 1px solid #000;
+                    }
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                      -webkit-appearance: none;
+                      margin: 0;
+                    }
+                    h3 {
+                        margin: 0;
+                        padding: 0;
+                        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+                        font-size: 1.5em;
+                    }
+                    #close {
+                        /*position: absolute;*/
+                        bottom: 10px;
+                        right: 10px;
+                    }
+                    #container {
+                        width: 336px;
+                        background-color: red;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        align-items: stretch;
+                        border-top: 1px solid black;
+                        border-bottom: 1px solid black;
+                    }
+                    #container * {
+                        /*flex: 0 0 100%;*/
+                        /*display: flex;*/
+                        /*justify-content: center;*/
+                    }
+                    #preview {
+                        /*width: 100%;*/
+                        height: 50px;
+                        margin: 5px;
+                        margin-bottom: 0px;
+                        border: 1px solid #000;
+                        width: 50px;
+                    }
+                    #footer {
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: flex-end;
+                        margin: 5px 5px;
+                        /*background: red;*/
+                        flex: 2;
+                    }
+                    .header {
+                        display: flex;
+                        align-items: center;
+                    }
+                    #colorInput1 {
+                        display: none;
+                    }
+                    #value {
+                        width: 85%;
+                    }
+                    #alpha {
+                        /*all: unset;*/
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance:none;
+                        display: inline;
+                        width: 35px;
+                        margin-left: 0;
+      
+            
+                    }
+                    
+            
+                  </style>
+      <script src="jscolor.js"></script>
+      <script src="picker.js"></script>
+   </head>
+   <body>
+      
+      <div class="header">
+          <div id="preview"></div>
+          <h3>QColor Picker</h3>
+      </div>
+      <span id="response-container">-</span>
+      <div class="header">
+         <input id="colorInput1" value="AB2567"/>
+         <input id="value" value="AB2567"/>
+         <input id="alpha" type="number" step="0.01"/>
+      </div>
+      <div id="container"></div>
+      <div id="footer">
+         <button id="save">Save</button>
+         <button id="close">Close</button>
+      </div>
+   </body>
+</html>
