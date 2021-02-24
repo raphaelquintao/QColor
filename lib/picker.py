@@ -107,7 +107,7 @@ if __name__ == '__main__':
     window = webview.create_window('QPicker', 
                                    url="web/picker.html", 
                                    js_api=api, 
-                                   frameless= True,
+                                   frameless= False,
                                    background_color='#FF9900',
                                    width=338,
                                    height=420,
