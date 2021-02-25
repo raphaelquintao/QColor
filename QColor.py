@@ -6,11 +6,16 @@ import sys
 import re
 from pprint import pprint
 import imp
-
+import importlib
 
 # GLOBALS
+APPNAME = "QColor"
+VERSION = "1.0.0-beta"
+
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
+
+FOUND_WEBVIEW = False
 
 def SETTINGS():
     return sublime.load_settings(SETTINGSFILE)
@@ -34,29 +39,36 @@ libdir = os.path.join(directory, 'lib')
 
 
 if sublime.platform() == 'osx':
-    # binpath = os.path.join(libdir, 'osx_colorpicker')
     binpath = os.path.join(libdir, 'picker.py')
 elif sublime.platform() == 'linux':
-    # binpath = os.path.join(libdir, 'linux_colorpicker.py')
     binpath = os.path.join(libdir, 'picker.py')
 else:
-    # binpath = os.path.join(libdir, 'win_colorpicker.exe')
     binpath = os.path.join(libdir, 'picker.py')
 
 
 def plugin_loaded():
-    if sublime.platform() == 'osx' or sublime.platform() == 'linux':
+    if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
         binfile = os.path.join(sublime.packages_path(), binpath)
         if os.path.isfile(binfile): 
-            print("BINFILE:", binfile)
+            # print("BINFILE:", binfile)
             if not os.access(binfile, os.X_OK):
                 os.chmod(binfile, 0o755)
         else: print("BINFILE Not Found:", binfile)
 
+        print(sys.modules)
+        
+        if 'pywebview' in sys.modules:
+            FOUND_WEBVIEW = True
+        else:
+            FOUND_WEBVIEW = False
+
+        if not FOUND_WEBVIEW:
+            print("WEBVIEW NOT FOUND: please run pip3 install pywebview")
+
 
 for module in sys.modules.keys():
     if 'qutils' in module:
-        print(module, sys.modules[module])
+        # print(module, sys.modules[module])
         imp.reload(sys.modules[module])
 
 from .lib.qutils import QColorUtils
@@ -107,7 +119,11 @@ def GenPopupHTML(color, colors, reg):
 
     
     title = '<div class="title">QColor</div>'
-    picker = '<a class="picker" href="{0}:{1}:">Customize</a>'.format('pick', reg)
+    if FOUND_WEBVIEW:
+        picker = '<a class="picker" href="{0}:{1}:">Customize</a>'.format('pick', reg)
+    else:
+        picker = '<span class="error">please run pip3 install pywebview</span>'
+
     preview = '<div class="preview"><img src="{0}"></div>'.format(png_trans)
 
     header = '<div class="header hl">{0} {1} {2}</div>'.format(preview, title, picker)
@@ -143,6 +159,10 @@ def GenPopupHTML(color, colors, reg):
                    border: 1px solid var(--border);  
                    }
 
+        .error   { display: inline; position: relative; padding: 0.0em; bottom: 0.25em;
+                   font-size: 1.0em; line-height: 1em; font-weight: bold; color:red;  
+                   
+                  }
 
         .stitle  { font-size: 1.0em; line-height: 1em; font-weight: bold; margin-bottom: 0.4em; }
         .line    { font-size: 1.0em; line-height: 1em; margin: 0.3em var(--margin); }
@@ -198,10 +218,9 @@ def popup_show(view, reg):
                     location=reg.end(),
                     max_width=1024,
                     max_height=1024,
-                    on_hide = lambda: print("HIDE POPUP") ,
+                    # on_hide = lambda: print("HIDE POPUP") ,
                     on_navigate=lambda x: popup_navigate(view, x))
     
-
 
 
 
@@ -211,10 +230,10 @@ class QPicker(object):
         # self.arg = arg
 
     def pick(self, window, start_color):
-        print("STARTCOLOR", start_color)
+        # print("STARTCOLOR", start_color)
         ncolor = ''
 
-        if sublime.platform() == 'linux':
+        if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
             args = [os.path.join(sublime.packages_path(), binpath)]
             if start_color: args.append(start_color)
 
@@ -224,7 +243,7 @@ class QPicker(object):
             ncolor = color.decode('utf-8')
 
         else: 
-            print("NOT LINUX")
+            print("PLATAFORM NOT SUPPORTED")
 
         return ncolor
 
@@ -423,6 +442,24 @@ class QColor(sublime_plugin.ViewEventListener):
 
 # --- Commands
 
+class QColorVersion(sublime_plugin.ApplicationCommand):
+    def time(self):
+        return datetime.now().strftime("%H:%M:%S")
+
+    def get_msg(self):
+        return "{0} {1}".format(APPNAME,VERSION)
+
+    def run(self):
+        for win in sublime.windows():
+            win.status_message(self.get_msg())
+
+    def description(self):
+        return self.get_msg()
+
+    def is_enabled(self):
+        return False
+
+
 class QColorDebug(sublime_plugin.ApplicationCommand):
     key_conf = CONF_KEY
     key_ctrl = '__debug'
@@ -476,7 +513,7 @@ class QColorShow(sublime_plugin.ApplicationCommand):
         return sublime.active_window().active_view()
 
     def run(self): 
-        print("QColors Command")
+        # print("QColors Command")
 
         _conf = self.active_view().settings().get(self.key_conf, self.settings().get(self.key_conf, {}))        
         _conf[self.key_ctrl] = not self.is_checked()
@@ -549,7 +586,7 @@ class QColorConverter(sublime_plugin.TextCommand):
 class QColorPicker(sublime_plugin.TextCommand):
 
     def run(self, edit, reg = None): 
-        print("QColor Picker")
+        # print("QColor Picker")
         sel = self.view.sel()
         region = sel[0]
         if reg:
@@ -577,7 +614,7 @@ class QColorPicker(sublime_plugin.TextCommand):
                 sel.clear()
                 sel.add(region)
                 ncolor = converter.parse(ncolor).get(in_mode)
-                print("NEW COLOR", ncolor)
+                # print("NEW COLOR", ncolor)
                 self.view.replace(edit, region, ncolor)
 
     def is_enabled(self):

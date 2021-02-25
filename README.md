@@ -1,2 +1,2 @@
 # QColor
-Sublime Color Highlighter, Converter and Picker 
+Awesome Sublime Color Highlighter, Converter and Picker 

@@ -4,7 +4,7 @@
   "id": "q_color",
   "mnemonic": "C",
   "children": [
-    { "caption": "Debug", "command": "q_color_debug", "checkbox": true },
+    // { "caption": "Debug", "command": "q_color_debug", "checkbox": true },
     { "caption": "Enabled", "command": "q_color_enabled", "checkbox": true },
     { "caption": "Show", "command": "q_color_show", "checkbox": true },
     { "caption": "QColor Picker", "command": "q_color_picker" },
@@ -20,7 +20,6 @@
         "default": "{\n\t$0\n}\n"
       }
     },
-    
     {
       "caption": "Settings – Default",
       "command": "open_file",
@@ -30,6 +29,18 @@
       "caption": "Settings – User",
       "command": "open_file",
       "args": { "file": "${packages}/User/QColor.sublime-settings" }
-    }
+    },
+    { "caption": "-", "id": "keymap" },
+    {
+      "caption": "Keymap",
+      "command": "edit_settings",
+      "args":
+      {
+        "base_file": "${packages}/QColor/Default.sublime-keymap",
+        "default": "{\n\t$0\n}\n"
+      }
+    },
+    { "caption": "-", "id": "info" },
+    { "command": "q_color_version" },
   ]
 }]
