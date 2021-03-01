@@ -10,7 +10,7 @@ import importlib
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta"
+VERSION = "1.0.1-beta4"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
@@ -48,8 +48,9 @@ else:
 
 def check_deps():
     test_bin = os.path.join(libdir, 'test.py')
-    if not os.access(test_bin, os.X_OK):
-        os.chmod(binfile, 0o755)
+    if sublime.platform() == 'osx' or sublime.platform() == 'linux':
+        if not os.access(test_bin, os.X_OK):
+            os.chmod(binfile, 755)
 
     args = [os.path.join(sublime.packages_path(), test_bin)]
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
@@ -64,25 +65,25 @@ def check_deps():
 
 def plugin_loaded():
     global FOUND_WEBVIEW
-    if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
+    if sublime.platform() == 'osx' or sublime.platform() == 'linux':
         binfile = os.path.join(sublime.packages_path(), binpath)
         if os.path.isfile(binfile): 
             # print("BINFILE:", binfile)
             if not os.access(binfile, os.X_OK):
-                os.chmod(binfile, 0o755)
+                os.chmod(binfile, 755)
         else: print("BINFILE Not Found:", binfile)
 
         # print(check_deps())
         
         
 
-        if check_deps():
-            FOUND_WEBVIEW = True
-        else:
-            FOUND_WEBVIEW = False
+    if check_deps():
+        FOUND_WEBVIEW = True
+    else:
+        FOUND_WEBVIEW = False
 
-        if not FOUND_WEBVIEW:
-            print("WEBVIEW NOT FOUND: please run pip3 install pywebview")
+    if not FOUND_WEBVIEW:
+        print("WEBVIEW NOT FOUND: please run pip3 install pywebview")
 
 
 for module in sys.modules.keys():
