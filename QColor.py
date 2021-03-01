@@ -46,7 +46,24 @@ else:
     binpath = os.path.join(libdir, 'picker.py')
 
 
+def check_deps():
+    test_bin = os.path.join(libdir, 'test.py')
+    if not os.access(test_bin, os.X_OK):
+        os.chmod(binfile, 0o755)
+                
+    args = [os.path.join(sublime.packages_path(), test_bin)]
+    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    msg = proc.communicate()[0].strip()
+    msg = msg.decode('utf-8')
+    # print(msg == "true")
+
+    if msg == "true": return True
+    else: return False
+
+
+
 def plugin_loaded():
+    global FOUND_WEBVIEW
     if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
         binfile = os.path.join(sublime.packages_path(), binpath)
         if os.path.isfile(binfile): 
@@ -55,9 +72,11 @@ def plugin_loaded():
                 os.chmod(binfile, 0o755)
         else: print("BINFILE Not Found:", binfile)
 
-        print(sys.modules)
+        # print(check_deps())
         
-        if 'pywebview' in sys.modules:
+        
+
+        if check_deps():
             FOUND_WEBVIEW = True
         else:
             FOUND_WEBVIEW = False
@@ -110,6 +129,8 @@ def GenPhantomHTML(color, href, circular = False):
 
 
 def GenPopupHTML(color, colors, reg):
+    global FOUND_WEBVIEW
+
     lines = ""
     for c in colors:
         lines += '<div class="line"><a class="color" href="r:{1}:{0}">{0}</a> <a class="copy" href="copy:{1}:{0}">Copy</a></div>'.format(c, reg)
@@ -221,6 +242,8 @@ def popup_show(view, reg):
                     # on_hide = lambda: print("HIDE POPUP") ,
                     on_navigate=lambda x: popup_navigate(view, x))
     
+
+
 
 
 

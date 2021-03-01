@@ -30,32 +30,6 @@ class Api:
         }
         return response
 
-    def getRandomNumber(self):
-        response = {
-            'message': 'Here is a random number courtesy of randint: {0}'.format(random.randint(0, 100000000))
-        }
-        return response
-
-    def doHeavyStuff(self):
-        time.sleep(0.1)  # sleep to prevent from the ui thread from freezing for a moment
-        now = time.time()
-        self.cancel_heavy_stuff_flag = False
-        for i in range(0, 1000000):
-            _ = i * random.randint(0, 1000)
-            if self.cancel_heavy_stuff_flag:
-                response = {'message': 'Operation cancelled'}
-                break
-        else:
-            then = time.time()
-            response = {
-                'message': 'Operation took {0:.1f} seconds on the thread {1}'.format((then - now), threading.current_thread())
-            }
-        return response
-
-    def cancelHeavyStuff(self):
-        time.sleep(0.1)
-        self.cancel_heavy_stuff_flag = True
-
     def showColor(self, name):
         global resp
 
