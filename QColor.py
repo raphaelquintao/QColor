@@ -10,7 +10,7 @@ import importlib
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta7"
+VERSION = "1.0.1-beta8"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
@@ -167,7 +167,7 @@ def GenPopupHTML(color, colors, reg):
                     --bg-hl: color(var(--background) l(-50%) a(0.3));
                    color:var(--foreground); background-color: var(--background); border: 1px solid var(--border); border-radius: 0px;
                    }
-        body     { font-family: inherit; font-size: 1rem; padding: 0; margin:0;  border-radius: inherit; }
+        body     { font-family: monospace; font-size: 1rem; padding: 0; margin:0;  border-radius: inherit; }
         a        { text-decoration:none; font-size: 1em; background-color: color(red a(0.0)); color:var(--foreground); }
         img      { display: inline; position: relative; width: 1em; height: 0.8em;  line-height: 1em; }
 
