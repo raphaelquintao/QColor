@@ -15,7 +15,7 @@ VERSION = "1.0.0-beta"
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
 
-FOUND_WEBVIEW = False
+# found_webview = False
 
 def SETTINGS():
     return sublime.load_settings(SETTINGSFILE)
@@ -46,7 +46,21 @@ else:
     binpath = os.path.join(libdir, 'picker.py')
 
 
+def check_deps():
+    _dir = os.path.join(libdir, 'test.py')
+    args = [os.path.join(sublime.packages_path(), _dir)]
+    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    msg = proc.communicate()[0].strip()
+    msg = msg.decode('utf-8')
+    # print(msg == "true")
+
+    if msg == "true": return True
+    else: return False
+
+
+
 def plugin_loaded():
+    global found_webview
     if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
         binfile = os.path.join(sublime.packages_path(), binpath)
         if os.path.isfile(binfile): 
@@ -55,16 +69,20 @@ def plugin_loaded():
                 os.chmod(binfile, 0o755)
         else: print("BINFILE Not Found:", binfile)
 
-        print(sys.modules)
+        # print(check_deps())
         
-        if 'pywebview' in sys.modules:
-            FOUND_WEBVIEW = True
-        else:
-            FOUND_WEBVIEW = False
+        
 
-        if not FOUND_WEBVIEW:
+        if check_deps():
+            found_webview = True
+        else:
+            found_webview = False
+
+        if not found_webview:
             print("WEBVIEW NOT FOUND: please run pip3 install pywebview")
 
+
+print(found_webview)
 
 for module in sys.modules.keys():
     if 'qutils' in module:
@@ -110,6 +128,8 @@ def GenPhantomHTML(color, href, circular = False):
 
 
 def GenPopupHTML(color, colors, reg):
+    global found_webview
+    
     lines = ""
     for c in colors:
         lines += '<div class="line"><a class="color" href="r:{1}:{0}">{0}</a> <a class="copy" href="copy:{1}:{0}">Copy</a></div>'.format(c, reg)
@@ -119,7 +139,7 @@ def GenPopupHTML(color, colors, reg):
 
     
     title = '<div class="title">QColor</div>'
-    if FOUND_WEBVIEW:
+    if found_webview:
         picker = '<a class="picker" href="{0}:{1}:">Customize</a>'.format('pick', reg)
     else:
         picker = '<span class="error">please run pip3 install pywebview</span>'
@@ -221,6 +241,8 @@ def popup_show(view, reg):
                     # on_hide = lambda: print("HIDE POPUP") ,
                     on_navigate=lambda x: popup_navigate(view, x))
     
+
+
 
 
 
