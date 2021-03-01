@@ -10,7 +10,7 @@ import importlib
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta4"
+VERSION = "1.0.1-beta5"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
@@ -50,7 +50,7 @@ def check_deps():
     test_bin = os.path.join(libdir, 'test.py')
     if sublime.platform() == 'osx' or sublime.platform() == 'linux':
         if not os.access(test_bin, os.X_OK):
-            os.chmod(binfile, 755)
+            os.chmod(test_bin, 755)
 
     args = [os.path.join(sublime.packages_path(), test_bin)]
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
