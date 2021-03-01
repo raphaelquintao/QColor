@@ -53,6 +53,10 @@ def check_deps():
             os.chmod(test_bin, 0o755)
 
     args = [os.path.join(sublime.packages_path(), test_bin)]
+    if sublime.platform() == 'windows':
+        args = ['pythonw', args[0]]
+
+    print("Args:", args)
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
     msg = proc.communicate()[0].strip()
     msg = msg.decode('utf-8')
@@ -259,6 +263,9 @@ class QPicker(object):
 
         if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
             args = [os.path.join(sublime.packages_path(), binpath)]
+            if sublime.platform() == 'windows':
+                args = ['pythonw', args[0]]
+
             if start_color: args.append(start_color)
 
             proc = subprocess.Popen(args, stdout=subprocess.PIPE)
