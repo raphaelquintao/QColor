@@ -10,7 +10,7 @@ import importlib
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta6"
+VERSION = "1.0.1-beta7"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
