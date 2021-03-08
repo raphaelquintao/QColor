@@ -1,22 +1,32 @@
 [
-  // { "caption": "-", "id": "_q_color" },
+  { "caption": "-"},
   {
-    // "caption": "QColor Enabled",
-    "command": "q_color_enabled",
-    "checkbox": true
-  },
-  {
-    "caption": "QColor Show",
-    "command": "q_color_show",
-    "checkbox": true
-  },
-  {
-    "caption": "QColor Picker",
-    "command": "q_color_picker"
-  },
-  { "command": "q_color_converter", "args": { "mode": "open" } },
+    "caption": "QColor",
+    "mnemonic": "C",
+    "children": [
+      {
+        "caption": "QColor Enabled",
+        "command": "q_color_enabled",
+        "checkbox": true
+      },
+      {
+        "caption": "QColor Show",
+        "command": "q_color_show",
+        "checkbox": true
+      },
+      {
+        "caption": "QColor Picker",
+        "command": "q_color_picker"
+      },
+      { 
+        "caption": "QColor Converter",
+        "command": "q_color_converter", 
+        "args": { "mode": "open" } 
+      },
 
-  // { "command": "q_color_converter", "args": { "mode": "rgb" } },
-  // { "command": "q_color_converter", "args": { "mode": "hsl" } },
-  { "caption": "-", },
+      // { "command": "q_color_converter", "args": { "mode": "rgb" } },
+      // { "command": "q_color_converter", "args": { "mode": "hsl" } },
+      // { "caption": "-", },
+    ]
+  } 
 ]

@@ -5,12 +5,10 @@ import subprocess
 import sys
 import re
 from pprint import pprint
-import imp
-import importlib
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta8"
+VERSION = "1.0.1-beta10"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
@@ -42,21 +40,25 @@ if sublime.platform() == 'osx':
     binpath = os.path.join(libdir, 'picker.py')
 elif sublime.platform() == 'linux':
     binpath = os.path.join(libdir, 'picker.py')
+elif sublime.platform() == 'windows':
+    binpath = os.path.join(libdir, 'picker.py')
 else:
     binpath = os.path.join(libdir, 'picker.py')
 
 
 def check_deps():
     test_bin = os.path.join(libdir, 'test.py')
-    if sublime.platform() == 'osx' or sublime.platform() == 'linux':
-        if not os.access(test_bin, os.X_OK):
-            os.chmod(test_bin, 0o755)
+    # if sublime.platform() == 'osx' or sublime.platform() == 'linux':
+    #     if not os.access(test_bin, os.X_OK):
+    #         os.chmod(test_bin, 0o755)
 
     args = [os.path.join(sublime.packages_path(), test_bin)]
     if sublime.platform() == 'windows':
         args = ['pythonw', args[0]]
+    elif sublime.platform() == 'osx' or sublime.platform() == 'linux':
+        args = ['python3', args[0]]
 
-    print("Args:", args)
+    if DEBUG(): print("Args:", args)
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
     msg = proc.communicate()[0].strip()
     msg = msg.decode('utf-8')
@@ -72,9 +74,10 @@ def plugin_loaded():
     if sublime.platform() == 'osx' or sublime.platform() == 'linux':
         binfile = os.path.join(sublime.packages_path(), binpath)
         if os.path.isfile(binfile): 
+            pass
             # print("BINFILE:", binfile)
-            if not os.access(binfile, os.X_OK):
-                os.chmod(binfile, 0o755)
+            # if not os.access(binfile, os.X_OK):
+                # os.chmod(binfile, 0o755)
         else: print("BINFILE Not Found:", binfile)
 
         # print(check_deps())
@@ -219,7 +222,7 @@ def GenPopupHTML(color, colors, reg):
 
 def popup_navigate(view, arg):
     (cmd, reg, value) = arg.split(':')
-    print(cmd, reg, value)
+    if DEBUG(): print(cmd, reg, value)
     if cmd == 'r':
         view.run_command("q_color_converter", {"reg": reg, "mode": "r", "value": value})
     elif cmd == 'pick':
@@ -265,6 +268,8 @@ class QPicker(object):
             args = [os.path.join(sublime.packages_path(), binpath)]
             if sublime.platform() == 'windows':
                 args = ['pythonw', args[0]]
+            elif sublime.platform() == 'osx' or sublime.platform() == 'linux':
+                args = ['python3', args[0]]
 
             if start_color: args.append(start_color)
 
@@ -441,7 +446,7 @@ class QColor(sublime_plugin.ViewEventListener):
     def on_modified(self):
         # if DEBUG(): print("View Modified")
         if self.isEnabled():
-            print("View Modified")
+            if DEBUG(): print("View Modified")
         self.show_phantoms()
         # self.view.hide_popup()
 
@@ -561,7 +566,7 @@ class QColorShow(sublime_plugin.ApplicationCommand):
         return ENABLED()
 
     def is_visible(self):
-        return ENABLED()
+        return True
 
 
 class QColorConverter(sublime_plugin.TextCommand):
@@ -584,12 +589,12 @@ class QColorConverter(sublime_plugin.TextCommand):
 
 
     def run(self, edit, reg = None, mode = None, value = None):
-        print("QColor Converter")
+        if DEBUG(): print("QColor Converter")
         (in_region, region) = self.in_region(reg)
 
         if not in_region: return
 
-        print("in region")
+        if DEBUG(): print("in region")
 
         if mode in [None, "open", "hex"]:
             popup_show(self.view, region)
@@ -599,7 +604,7 @@ class QColorConverter(sublime_plugin.TextCommand):
                 # tmp=sublime.Region(region.begin())
             (in_reg, nreg) = self.find_region(sublime.Region(region.begin()))
             if(in_reg): 
-                print("nreg", nreg)
+                if DEBUG(): print("nreg", nreg)
                 popup_show(self.view, nreg)
 
         
@@ -611,7 +616,7 @@ class QColorConverter(sublime_plugin.TextCommand):
         return ENABLED() and in_region
 
     def is_visible(self):
-        return ENABLED()
+        return True
 
 
 class QColorPicker(sublime_plugin.TextCommand):
@@ -653,4 +658,4 @@ class QColorPicker(sublime_plugin.TextCommand):
         return ENABLED() and os.path.isfile(binfile)
 
     def is_visible(self):
-        return ENABLED()
+        return True

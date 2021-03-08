@@ -1,46 +1,105 @@
 [
-{
-  "caption": "QColor",
-  "id": "q_color",
-  "mnemonic": "C",
-  "children": [
-    // { "caption": "Debug", "command": "q_color_debug", "checkbox": true },
-    { "caption": "Enabled", "command": "q_color_enabled", "checkbox": true },
-    { "caption": "Show", "command": "q_color_show", "checkbox": true },
-    { "caption": "QColor Picker", "command": "q_color_picker" },
-    { "caption": "QColor Converter", "command": "q_color_converter" },
+  {
+    "caption": "Tools",
+    "id": "tools",
+    "mnemonic": "t",
+    "children": [
+      {
+        "caption": "QColor",
+        // "id": "q_color",
+        "mnemonic": "c",
+        "children": [
+          // { "caption": "Debug", "command": "q_color_debug", "checkbox": true },
+          { "caption": "Enabled", "command": "q_color_enabled", "checkbox": true },
+          { "caption": "Show", "command": "q_color_show", "checkbox": true },
+          { "caption": "Picker", "command": "q_color_picker" },
+          { "caption": "Converter", "command": "q_color_converter" },
 
-    { "caption": "-", "id": "settings" },
-    {
-      "caption": "Settings",
-      "command": "edit_settings",
-      "args":
-      {
-        "base_file": "${packages}/QColor/QColor.sublime-settings",
-        "default": "{\n\t$0\n}\n"
+          { "caption": "-", "id": "settings" },
+          {
+            "caption": "Settings",
+            "command": "edit_settings",
+            "args":
+            {
+              "base_file": "${packages}/QColor/QColor.sublime-settings",
+              "default": "{\n\t$0\n}\n"
+            }
+          },
+          {
+            "caption": "Settings – Default",
+            "command": "open_file",
+            "args": { "file": "${packages}/QColor/QColor.sublime-settings" }
+          },
+          {
+            "caption": "Settings – User",
+            "command": "open_file",
+            "args": { "file": "${packages}/User/QColor.sublime-settings" }
+          },
+          { "caption": "-", "id": "keymap" },
+          {
+            "caption": "Key Bindings",
+            "command": "edit_settings",
+            "args":
+            {
+              "base_file": "${packages}/QColor/Default.sublime-keymap",
+              "default": "{\n\t$0\n}\n"
+            }
+          },
+          { "caption": "-", "id": "info" },
+          { "command": "q_color_version" },
+        ]
       }
-    },
-    {
-      "caption": "Settings – Default",
-      "command": "open_file",
-      "args": { "file": "${packages}/QColor/QColor.sublime-settings" }
-    },
-    {
-      "caption": "Settings – User",
-      "command": "open_file",
-      "args": { "file": "${packages}/User/QColor.sublime-settings" }
-    },
-    { "caption": "-", "id": "keymap" },
-    {
-      "caption": "Keymap",
-      "command": "edit_settings",
-      "args":
+    ]
+  },
+  {
+    "caption": "Preferences",
+    "id": "preferences",
+    "mnemonic": "p",
+    "children": [
       {
-        "base_file": "${packages}/QColor/Default.sublime-keymap",
-        "default": "{\n\t$0\n}\n"
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "QColor",
+            "mnemonic": "c",
+            "children": [
+              {
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args":
+                {
+                  "base_file": "${packages}/QColor/QColor.sublime-settings",
+                  "default": "{\n\t$0\n}\n"
+                }
+                },
+                {
+                  "caption": "Settings – Default",
+                  "command": "open_file",
+                  "args": { "file": "${packages}/QColor/QColor.sublime-settings" }
+                },
+                {
+                  "caption": "Settings – User",
+                  "command": "open_file",
+                  "args": { "file": "${packages}/User/QColor.sublime-settings" }
+                },
+                { "caption": "-", "id": "keymap" },
+                {
+                  "caption": "Key Bindings",
+                  "command": "edit_settings",
+                  "args":
+                  {
+                    "base_file": "${packages}/QColor/Default.sublime-keymap",
+                    "default": "{\n\t$0\n}\n"
+                  }
+                }
+
+            ]
+          }
+        ]
       }
-    },
-    { "caption": "-", "id": "info" },
-    { "command": "q_color_version" },
-  ]
-}]
+    ]
+  }
+
+]
