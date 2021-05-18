@@ -1,2 +1,4 @@
 *.sublime-project
 *.sublime-workspace
+/lib/test_conversion.py
+/lib/__pycache__

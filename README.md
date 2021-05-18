@@ -7,7 +7,7 @@ Awesome Sublime Color Highlighter, Converter and Picker
 
 ### Possible problems
   
-If picker dont works, maybe you having some problem with pywebview. You can try run the following python code to check if webview is working preperly.
+If picker dont works, maybe you having some problem with pywebview. You can try run the following python code to check if webview is working properly.
 
 ```python
 
@@ -22,21 +22,24 @@ webview.start()
 {
   "__debug": false,
   "_enabled": true,
-  "q_color":
+  "q_color": // is used internally, it recommended not change. 
   {
-    "active": false
+    "active": false 
   },
   "circular_phantom": true,
-  "hsl_float": true,
+  "hsl_float": false,
   "hex_upper_case": true,
-  "hover_preview": true,
+  "hover_preview": false,
   "auto_close_popups": true,
   "named_colors": false
 }
 ```
 
 ## Screenshots
+<span style="display:block; text-align:center">
+
 ![image](https://user-images.githubusercontent.com/2568375/109458175-0fb34c80-7a3b-11eb-8185-a92a24f98f38.png)
 ![image](https://user-images.githubusercontent.com/2568375/109461386-d251bd80-7a40-11eb-99c1-4da7d375433b.png)
 ![image](https://user-images.githubusercontent.com/2568375/109461430-e4336080-7a40-11eb-8bb8-f64aed41e0b6.png)
 
+</span>

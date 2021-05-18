@@ -1,27 +1,35 @@
 [
     {
-        "caption": "QColor - Picker",
+        "caption": "QColor: Picker",
         "command": "q_color_picker"
     },
     {
-        "caption": "QColor - Toogle",
+        "caption": "QColor: Toogle",
         "command": "q_color_enabled"
     },
     {
-        "caption": "QColor - Show",
+        "caption": "QColor: Show",
         "command": "q_color_show"
-    } ,
-    {
-    	"caption": "QColor - Converter", 
-    	"command": "q_color_converter" 
     },
     {
-      "caption": "QColor - Settings",
-      "command": "edit_settings",
-      "args":
-      {
-        "base_file": "${packages}/QColor/QColor.sublime-settings",
-        "default": "{\n\t$0\n}\n"
-      }
+        "caption": "QColor: Converter",
+        "command": "q_color_converter"
     },
+    {
+        "caption": "QColor: Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/QColor/QColor.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "QColor: Key Bindings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/QColor/Default (${platform}).sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    }
+
 ]

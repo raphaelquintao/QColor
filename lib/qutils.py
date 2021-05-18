@@ -174,7 +174,7 @@ class QColorUtils(object):
 
 
     # Static Functions
-    def set_conf(hsl_float = False, hex_upper_case= False, named_color = False):
+    def set_conf(hsl_float = False, hex_upper_case = False, named_color = False):
         QColorUtils.hsl_precision =  3 if hsl_float else 0
         QColorUtils.hex_upper =  True if hex_upper_case else False
         QColorUtils.named_colors =  True if named_color else False
@@ -194,7 +194,9 @@ class QColorUtils(object):
             h = s = 0.0
         else:
             d = high - low
-            s = d / (2.0 - high - low) if low > 0.5 else d / (high + low)
+            
+            s = d / (2.0 - high - low) if l > 0.5 else d / (high + low)
+            
             h = {
                 r: (g - b) / d + (6.0 if g < b else 0),
                 g: (b - r) / d + 2.0,
@@ -268,12 +270,13 @@ class QColorUtils(object):
 
                     self.alpha = True
                 elif len(value) == 8:
+                    (self.r, self.g, self.b) = int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
                     self.a = int(value[6:8], 16) / 255
                     self.alpha = True
                 else:
                     (self.r, self.g, self.b) = int(value[0:2], 16), int(value[2:4], 16), int(value[4:6], 16)
             self.in_mode = 'hex'
-
+            
         elif color.startswith('rgba'):
             match = re.search(regex_rgba, color, re.IGNORECASE)
             if(match):

@@ -6,9 +6,9 @@
     "active": false
   },
   "circular_phantom": true,
-  "hsl_float": true,
+  "hsl_float": false,
   "hex_upper_case": true,
-  "hover_preview": true,
+  "hover_preview": false,
   "auto_close_popups": true,
   "named_colors": false
 }

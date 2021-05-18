@@ -8,7 +8,7 @@ from pprint import pprint
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.1-beta10"
+VERSION = "1.0.5"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
@@ -19,12 +19,14 @@ def SETTINGS():
     return sublime.load_settings(SETTINGSFILE)
 
 def DEBUG():
-    return sublime.load_settings(SETTINGSFILE).get("__debug", False)
+    return sublime.load_settings(SETTINGSFILE).get("__debug", True)
 
 def ENABLED():
     return sublime.load_settings(SETTINGSFILE).get("_enabled", False)
 
 
+if DEBUG():
+    print("DEBUG MODE!")
 
 
 # LIBS
@@ -93,10 +95,10 @@ def plugin_loaded():
         print("WEBVIEW NOT FOUND: please run pip3 install pywebview")
 
 
-for module in sys.modules.keys():
-    if 'qutils' in module:
+# for module in sys.modules.keys():
+    # if 'qutils' in module:
         # print(module, sys.modules[module])
-        imp.reload(sys.modules[module])
+        # imp.reload(sys.modules[module])
 
 from .lib.qutils import QColorUtils
 
@@ -400,7 +402,7 @@ class QColor(sublime_plugin.ViewEventListener):
 
    
 
-    def show_phantoms(self):
+    def show_phantoms(self, only_regions = False):
         # print("QColor", "show_phantoms")
         self.view.erase_regions(self.key_conf)
         self.view.erase_phantoms(self.key_conf)
@@ -426,16 +428,16 @@ class QColor(sublime_plugin.ViewEventListener):
                               sublime.PERSISTENT)
 
 
-
-        for reg in c_regions:
-            self.phantom_show(self.view, reg)
+        if(not only_regions):
+            for reg in c_regions:
+                self.phantom_show(self.view, reg)
 
 
 
 
 
     def find_region(self, position):
-        regions = self.view.get_regions(self.conf_key)
+        regions = self.view.get_regions(self.key_conf)
         for creg in regions:
             if creg.contains(position):
                 return True, creg
@@ -447,18 +449,19 @@ class QColor(sublime_plugin.ViewEventListener):
         # if DEBUG(): print("View Modified")
         if self.isEnabled():
             if DEBUG(): print("View Modified")
-        self.show_phantoms()
+
+        self.show_phantoms(self.hover_preview)
         # self.view.hide_popup()
 
-    # def on_hover(self, point, hover_zone):
-    #     if self.hover_preview:
-    #         (in_region, region) = self.find_region(point)
-    #         if in_region:
-    #             print(point, hover_zone)
-    #         # popup_show(self.view, region)
-    #             self.view.erase_phantoms(self.conf_key)
-    #             self.phantom_show(self.view, region)
-    #         else: self.view.erase_phantoms(self.conf_key)
+    def on_hover(self, point, hover_zone):
+        if self.hover_preview:
+            (in_region, region) = self.find_region(point)
+            if in_region:
+                # print(point, hover_zone)
+            # popup_show(self.view, region)
+                self.view.erase_phantoms(self.key_conf)
+                self.phantom_show(self.view, region)
+            else: self.view.erase_phantoms(self.key_conf)
 
 
 
@@ -626,7 +629,7 @@ class QColorPicker(sublime_plugin.TextCommand):
         sel = self.view.sel()
         region = sel[0]
         if reg:
-            tmp = eval(reg)
+            tmp = eval(reg)            
             region = sublime.Region(tmp[0], tmp[1])
             
         else:
