@@ -1,0 +1,138 @@
+:root {
+    --page-bg-color: #333333;
+    --text-color: #f1f1f1;
+    --border-color: rgba(0, 0, 0, 0.9);
+    --input-bg-color: rgba(0, 0, 0, 0.2);
+    --margin: 7px;
+}
+
+html, body {
+    color: var(--text-color);
+    background-color: var(--page-bg-color);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+body {
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+}
+
+button {
+    all: unset;
+    height: 25px;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 0px 6px;
+    background: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button + button {
+    margin-left: var(--margin);
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+button:active {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: var(--text-color);
+    background: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    margin: 0;
+    padding: 5px 8px;
+    flex: 0;
+    min-width: 35px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input + input {
+    margin-left: var(--margin);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: var(--margin);
+}
+
+.row + .row {
+    padding-top: 0;
+}
+
+.preview {
+    height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid #000;
+    width: 50px;
+}
+
+.title {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-size: 1.5rem;
+    margin-left: var(--margin);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    /*background-color: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.jscolor-picker-wrap {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.response {
+    display: none;
+    padding: 0.1rem 0.4em;
+    margin: 5px;
+    font-size: 1rem;
+    border: 1px dashed var(--border-color);
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin:0;
+    padding: var(--margin);
+    flex: 1;
+}
+
+#value {
+    flex: 2;
+    background-image: none !important;
+}

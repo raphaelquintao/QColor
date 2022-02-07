@@ -263,7 +263,7 @@ class QPicker(object):
         # self.arg = arg
 
     def pick(self, window, start_color):
-        # print("STARTCOLOR", start_color)
+        if DEBUG(): print("STARTCOLOR", start_color)
         ncolor = ''
 
         if sublime.platform() == 'osx' or sublime.platform() == 'linux' or sublime.platform() == 'windows':
@@ -277,7 +277,7 @@ class QPicker(object):
 
             proc = subprocess.Popen(args, stdout=subprocess.PIPE)
             color = proc.communicate()[0].strip()
-            # print("RAW", color)
+            if DEBUG(): print("RAW", color)
             ncolor = color.decode('utf-8')
 
         else: 

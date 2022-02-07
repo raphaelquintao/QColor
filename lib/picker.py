@@ -8,7 +8,7 @@ import webview
 
 
 resp = ""
-color = "#ff9900"
+color = "#ff0000"
 toprint = False
 
 param = ''
@@ -20,41 +20,36 @@ if len(sys.argv) > 1:
 resp = param
 color = param
 
+# print("Start: ", color)
+
 class Api:
     def __init__(self):
         self.cancel_heavy_stuff_flag = False
 
-    def init(self):
+    def start(self):
+        global color
+
+        # print(color)
         response = {
-            'message': 'Hello from Python {0}'.format(sys.version)
+            'data': '{0}'.format(color)
         }
         return response
 
-    def showColor(self, name):
+    def showColor(self, color):
         global resp
 
         response = {
-            'message': '{0}'.format(name)
+            'data': '{0}'.format(color)
         }
-        resp = name
-        # print(name)
+        resp = color
         return response
 
-    def getTitle(self, name):
-        global resp, color
-
-        response = {
-            'message': '{0}'.format(color)
-        }
-        return response
 
     def closeWindow(self, to_print = False):
         global toprint, color, resp
-        # print("close")
         toprint = to_print;
         
-        if to_print:
-           print(resp)
+        if to_print: print(resp)
 
         window.destroy()
 
@@ -76,19 +71,21 @@ def change_url(window):
     window.load_url('web/picker.html')
     pass
 
+def get_file():
+    f = open("web/picker.html", "r")
+    return f.read()
+
 if __name__ == '__main__':
     api = Api()
     window = webview.create_window('QPicker', 
-                                   url="web/picker.html", 
+                                   url="web/picker.html",
                                    js_api=api, 
-                                   frameless= False,
-                                   background_color='#FF9900',
-                                   width=358,
-                                   height=480,
+                                   frameless=False,
+                                   background_color='#333333',
+                                   width=350,
+                                   height=450,
                                    easy_drag = False,
+                                   resizable=False
                                    )
-    # window = webview.create_window('QPicker', html=html, js_api=api)
-    # window.load_url('web/picker.html')
     window.closing += on_closing
-    # webview.start(change_url, window)    
-    webview.start()
+    webview.start(http_server=True)
