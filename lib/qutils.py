@@ -134,6 +134,7 @@ class QColorUtils(object):
         "powderblue": "B0E0E6",
         "purple": "800080",
         "red": "FF0000",
+        "rebeccapurple": "663399",
         "rosybrown": "BC8F8F",
         "royalblue": "4169E1",
         "saddlebrown": "8B4513",
