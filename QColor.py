@@ -8,7 +8,7 @@ from pprint import pprint
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.7"
+VERSION = "1.0.8"
 
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
