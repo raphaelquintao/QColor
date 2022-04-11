@@ -166,7 +166,7 @@ class QColorUtils(object):
         "hsla": r"hsla\s*?\(\s*?((?:000|0?\d{1,2}|[1-2]\d\d|3[0-5]\d|360)(?:\.\d*)?)\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?(0|0*\.\d+|1|1.0*)\s*?\)",  # noqa
     }
 
-    def set_conf(hsl_float = False, hex_upper_case = False, named_color = False):
+    def set_conf(hsl_float=False, hex_upper_case=False, named_color=False):
         QColorUtils.hsl_precision = 3 if hsl_float else 0
         QColorUtils.hex_upper = True if hex_upper_case else False
         QColorUtils.named_colors = True if named_color else False
@@ -276,7 +276,7 @@ class QColorUtils(object):
             self.in_mode = 'hsl'
         return self
 
-    def getHEX(self, alpha = False):
+    def getHEX(self, alpha=False):
         resp = "#%02x%02x%02x" % (round(self.r), round(self.g), round(self.b))
         if (self.alpha and alpha) or (not self.alpha and alpha):
             resp += "%02x" % round(self.a * 255)

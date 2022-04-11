@@ -75,7 +75,7 @@ def plugin_loaded():
 # HTML for Phantom
 # -----------------------
 
-def GenPhantomHTML(color, href, circular = False):
+def GenPhantomHTML(color, href, circular=False):
     style = """
         *         {{ background-color:transparent; border-width:0; margin:0; padding:0; }}
         html      {{ background-color:transparent;  }}
@@ -222,7 +222,6 @@ class QColor(sublime_plugin.ViewEventListener):
         self.enabled = SETTINGS().get('enabled', False)
         self.circular_phantom = self.settings().get('circular_phantom', False)
         self.hover_preview = self.settings().get('hover_preview', False)
-        self.auto_close_popups = self.settings().get('auto_close_popups', True)
         named_colors = self.settings().get('named_colors', False)
         hsl_float = self.settings().get('hsl_float', True)
         hex_upper = self.settings().get('hex_upper_case', False)

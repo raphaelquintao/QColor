@@ -30,7 +30,6 @@ webview.start()
   "hsl_float": false,
   "hex_upper_case": true,
   "hover_preview": false,
-  "auto_close_popups": true,
   "named_colors": false
 }
 ```

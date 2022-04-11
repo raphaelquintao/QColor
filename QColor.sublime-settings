@@ -1,14 +1,33 @@
 {
+  // Internal Settings - Do not change these
+  // You can enable or disable this plugin using the Sublime
+  // menu command "QColor: Toggle"
   "__debug": false,
   "_enabled": true,
-  "q_color":
-  {
-    "active": false
-  },
+  "q_color": { "active": false },
+
+  // Circular Phantom
+  // Set false to display square color boxes.
+  // Set true to display circular color boxes.
   "circular_phantom": true,
+
+  // HSL Float
+  // by default the HSL color space will use full integers. Setting this
+  // value to true will enable a floating point presion to 3 decimal places.
   "hsl_float": false,
+
+  // HEX Upper Case
+  // Display hex values in upper case.
   "hex_upper_case": true,
+
+  // Hover Preview
+  // Setting this to true will enable a color preview when hovering over a
+  // color. Only one color will be displayed on the screen at any point.
   "hover_preview": false,
-  "auto_close_popups": true,
+
+  // Named Colors
+  // Enable color boxes for named colors such as red, blue. The list of
+  // named colors comes from the SVG named colors. You can see them at
+  // https://www.december.com/html/spec/colorsvg.html
   "named_colors": false
 }
