@@ -1,18 +1,27 @@
 {
   // Internal Settings - Do not change these
-  // You can enable or disable this plugin using the Sublime
-  // menu command "QColor: Toggle"
-  "__debug": false,
+  // _debug: Enable QColor debug mode
+  // _enabled: Enable or disable the plugin
+  "_debug": false,
   "_enabled": true,
-  "q_color": { "active": false },
 
-  // Phantom Shape
-  // Shape of the color phantom displayed.
-  // Available shapes are "square" and "circle"
+  // Color Phantoms
+  // show_phantoms: Show ot hide the color phantoms
+  // phantom_shape: Phantom shape. One of: square, circle
+  "show_phantoms": false,
   "phantom_shape": "circle",
 
+  // Highlight Region
+  // show_on_minimap: Show or hide the regions on the minimap.
+  // underline_color: Color of region underline. One of: red, orange,
+  //   yellow, green, blue, purple, pink, black.
+  // underline_style: Underline style. One of: none, solid, stippled.
+  "show_on_minimap": true,
+  "underline_style": "stippled",
+  "underline_color": "purple",
+
   // HSL Float
-  // by default the HSL color space will use full integers. Setting this
+  // By default the HSL color space will use full integers. Setting this
   // value to true will enable a floating point presion to 3 decimal places.
   "hsl_float": false,
 

@@ -6,6 +6,9 @@
     {
         "keys": ["alt+shift+c"],
         "command": "q_color_converter"
-    }
-
+    },
+    {
+        "keys": ["alt+ctrl+c"],
+        "command": "q_color_show",
+    },
 ]

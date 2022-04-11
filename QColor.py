@@ -12,7 +12,7 @@ SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
 FOUND_WEBVIEW = False
 SETTINGS = lambda: sublime.load_settings(SETTINGSFILE)
-DEBUG = lambda: sublime.load_settings(SETTINGSFILE).get("__debug", True)
+DEBUG = lambda: sublime.load_settings(SETTINGSFILE).get("_debug", True)
 ENABLED = lambda: sublime.load_settings(SETTINGSFILE).get("_enabled", False)
 
 # LIBS
@@ -202,7 +202,7 @@ class QPicker(object):
 class QColor(sublime_plugin.ViewEventListener):
     enabled = False
     key_conf = CONF_KEY
-    key_ctrl = "active"
+    key_ctrl = "show_phantoms"
 
     def __init__(self, view):
         self.view = view
@@ -214,14 +214,17 @@ class QColor(sublime_plugin.ViewEventListener):
         return sublime.load_settings(SETTINGSFILE)
 
     def isEnabled(self):
+        """ Returns True if the full plugin is enabled. """
         if not ENABLED(): return False
-        _conf = self.view.settings().get(self.key_conf, SETTINGS().get(self.key_conf, {}))
-        return _conf.get(self.key_ctrl, True)
+        return self.settings().get(self.key_ctrl, False)
     
     def start(self):
         # Load Settings
         self.enabled = SETTINGS().get('enabled', False)
-        self.phantom_shape = self.settings().get('phantom_shape', "circle")
+        self.phantom_shape = self.settings().get('phantom_shape', 'circle')
+        self.show_on_minimap = self.settings().get('show_on_minimap', True)
+        self.underline_style = self.settings().get('underline_style', 'stippled')
+        self.underline_color = self.settings().get('underline_color', 'purple')
         self.hover_preview = self.settings().get('hover_preview', False)
         # Util settings
         named_colors = self.settings().get('named_colors', False)
@@ -285,28 +288,40 @@ class QColor(sublime_plugin.ViewEventListener):
             sublime.LAYOUT_INLINE,
             on_navigate=lambda x: QColor.phantom_navigate(self.view, x))
 
-    def show_phantoms(self, only_regions = False):
+    def show_phantoms(self, only_regions=False):
         # print("QColor", "show_phantoms")
         self.view.erase_regions(self.key_conf)
         self.view.erase_phantoms(self.key_conf)
         if not self.isEnabled(): return False
         c_regions = QColor.getColorRegions(self.view)
-        # "region.redish", "region.orangish", "region.yellowish", "region.greenish", "region.bluish",
-        # "region.purplish", "region.pinkish", "region.blackish"
-        self.view.add_regions(self.key_conf, c_regions, "region.purplish", "",
-            # sublime.DRAW_EMPTY |
-            # sublime.HIDE_ON_MINIMAP |
-            # sublime.DRAW_EMPTY_AS_OVERWRITE |
-            sublime.DRAW_NO_FILL |
-            sublime.DRAW_NO_OUTLINE |
-            sublime.DRAW_SOLID_UNDERLINE |
-            sublime.DRAW_STIPPLED_UNDERLINE |
-            # sublime.DRAW_SQUIGGLY_UNDERLINE |
-            # sublime.HIDDEN |
-            sublime.PERSISTENT)
+        underline_color = self.get_region_underline_color()
+        flags = self.get_region_flags()
+        self.view.add_regions(self.key_conf, c_regions, underline_color, '', flags)
         if not only_regions:
             for reg in c_regions:
                 self.phantom_show(self.view, reg)
+
+    def get_region_underline_color(self):
+        # Defualt is purple
+        if self.underline_color == 'red': return 'region.redish'
+        if self.underline_color == 'orange': return 'region.orangish'
+        if self.underline_color == 'yellow': return 'region.yellowish'
+        if self.underline_color == 'green': return 'region.greenish'
+        if self.underline_color == 'blue': return 'region.bluish'
+        if self.underline_color == 'pink': return 'region.pinkish'
+        if self.underline_color == 'black': return 'region.blackish'
+        return 'region.purplish'
+
+    def get_region_flags(self):
+        # Make sure the underline style is one we understand
+        style = self.underline_style.lower()
+        flags = sublime.DRAW_NO_FILL      # Disable filling the regions, leaving only the outline.
+        flags |= sublime.DRAW_NO_OUTLINE  # Disable drawing the outline of the regions.
+        # flags |= sublime.PERSISTENT       # Save the regions in the session.
+        flags |= sublime.DRAW_SOLID_UNDERLINE if style == 'solid' else 0
+        flags |= sublime.DRAW_STIPPLED_UNDERLINE if style == 'stippled' else 0
+        flags |= sublime.HIDE_ON_MINIMAP if not self.show_on_minimap else 0
+        return flags
 
     def find_region(self, position):
         regions = self.view.get_regions(self.key_conf)
@@ -365,12 +380,12 @@ class QColorVersion(sublime_plugin.ApplicationCommand):
 
 class QColorDebug(sublime_plugin.ApplicationCommand):
     key_conf = CONF_KEY
-    key_ctrl = '__debug'
+    key_ctrl = '_debug'
 
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
 
-    def run(self, toggle = True):
+    def run(self, toggle=True):
         if toggle:
             value = self.settings().get(self.key_ctrl, False)
             self.settings().set(self.key_ctrl, not value)
@@ -387,7 +402,7 @@ class QColorEnabled(sublime_plugin.ApplicationCommand):
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
 
-    def run(self, toggle = True):
+    def run(self, toggle=True):
         if toggle:
             value = self.settings().get(self.key_ctrl, False)
             self.settings().set(self.key_ctrl, not value)
@@ -402,7 +417,7 @@ class QColorEnabled(sublime_plugin.ApplicationCommand):
 
 class QColorShow(sublime_plugin.ApplicationCommand):
     key_conf = CONF_KEY
-    key_ctrl = 'active'
+    key_ctrl = 'show_phantoms'
 
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
@@ -410,19 +425,17 @@ class QColorShow(sublime_plugin.ApplicationCommand):
     def active_view(self):
         return sublime.active_window().active_view()
 
-    def run(self):
-        # print("QColors Command")
-
-        _conf = self.active_view().settings().get(self.key_conf, self.settings().get(self.key_conf, {}))
-        _conf[self.key_ctrl] = not self.is_checked()
-        
-        self.active_view().settings().set(self.key_conf, _conf)
+    def run(self, show=None):
+        value = self.settings().get(self.key_ctrl, False)
+        newvalue = show if show is not None else not value
+        self.settings().set(self.key_ctrl, newvalue)
+        sublime.save_settings(SETTINGSFILE)
 
     def description(self):
         return ""
         
     def is_checked(self):
-        return self.active_view().settings().get(self.key_conf, {}).get(self.key_ctrl, False)
+        return self.settings().get(self.key_ctrl, False)
 
     def is_enabled(self):
         return ENABLED()
@@ -438,7 +451,6 @@ class QColorConverter(sublime_plugin.TextCommand):
         if reg:
             reg = (lambda t: sublime.Region(t[0], t[1]))(eval(reg))
         else: reg = sel[0]
-
         return self.find_region(reg)
 
     def find_region(self, position):
@@ -452,11 +464,8 @@ class QColorConverter(sublime_plugin.TextCommand):
     def run(self, edit, reg = None, mode = None, value = None):
         if DEBUG(): print("QColor Converter")
         (in_region, region) = self.in_region(reg)
-
         if not in_region: return
-
         if DEBUG(): print("in region")
-
         if mode in [None, "open", "hex"]:
             popup_show(self.view, region)
         elif mode == 'r':
