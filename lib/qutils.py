@@ -166,8 +166,8 @@ class QColorUtils(object):
         "hsla": r"hsla\s*?\(\s*?((?:000|0?\d{1,2}|[1-2]\d\d|3[0-5]\d|360)(?:\.\d*)?)\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?((?:000|100|0?\d{2}|0?0?\d)(?:\.\d*)?)%\s*?,\s*?(0|0*\.\d+|1|1.0*)\s*?\)",  # noqa
     }
 
-    def set_conf(hsl_float=False, hex_upper_case=False, named_color=False):
-        QColorUtils.hsl_precision = 3 if hsl_float else 0
+    def set_conf(hsl_presicion=0, hex_upper_case=False, named_color=False):
+        QColorUtils.hsl_precision = hsl_presicion
         QColorUtils.hex_upper = True if hex_upper_case else False
         QColorUtils.named_colors = True if named_color else False
         if QColorUtils.named_colors:
@@ -176,7 +176,6 @@ class QColorUtils(object):
     def rgb_to_hsl(r, g, b, normalized = False):
         if not normalized:
             (r, g, b) = r / 255.0, g / 255.0, b / 255.0
-
         (r, g, b) = float(r), float(g), float(b)
         high = max(r, g, b)
         low = min(r, g, b)
@@ -286,22 +285,25 @@ class QColorUtils(object):
         return "rgba({0:g}, {1:g}, {2:g}, {3:g})".format(round(self.r, 0),
             round(self.g, 0), round(self.b, 0), round(self.a, 3))
 
-    def getRGB(self, alpha = True):
+    def getRGB(self, alpha=True):
         if self.alpha and alpha: return self.getRGBA()
         return "rgb({0:g}, {1:g}, {2:g})".format(round(self.r, 0), round(self.g, 0), round(self.b, 0))
     
     def getHSLA(self):
-        (r, g, b) = QColorUtils.rgb_to_hsl(self.r, self.g, self.b)
-        resp = "hsla({0:g}, {1:g}%, {2:g}%, {3:g})".format(round(r, self.hsl_precision),
-            round(g, self.hsl_precision), round(b, self.hsl_precision), round(self.a, 3))
-        return resp
+        h,s,l = QColorUtils.rgb_to_hsl(self.r, self.g, self.b)
+        h,s,l,a = [round(x, self.hsl_precision) for x in (h,s,l,self.a)]
+        if self.hsl_precision == 0:
+            h,s,l,a = [int(x) for x in (h,s,l,a)]
+        return "hsla({0:g}, {1:g}%, {2:g}%, {3:g})".format(h,s,l,a)
 
-    def getHSL(self, alpha = True):
-        if self.alpha and alpha: return self.getHSLA()
-        (r, g, b) = QColorUtils.rgb_to_hsl(self.r, self.g, self.b)
-        resp = "hsl({0:g}, {1:g}%, {2:g}%)".format(round(r, self.hsl_precision),
-            round(g, self.hsl_precision), round(b, self.hsl_precision))
-        return resp
+    def getHSL(self, alpha=True):
+        if self.alpha and alpha:
+            return self.getHSLA()
+        h,s,l = QColorUtils.rgb_to_hsl(self.r, self.g, self.b)
+        h,s,l = [round(x, self.hsl_precision) for x in (h,s,l)]
+        if self.hsl_precision == 0:
+            h,s,l = [int(x) for x in (h,s,l)]
+        return "hsl({0:g}, {1:g}%, {2:g}%)".format(h,s,l)
 
     def getNamed(self):
         hex = self.getHEX(False).upper().strip('#')

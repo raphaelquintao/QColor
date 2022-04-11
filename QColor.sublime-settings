@@ -6,9 +6,9 @@
   "_enabled": true,
 
   // Color Phantoms
-  // show_phantoms: Show ot hide the color phantoms
+  // phantoms_enabled: Show or hide the color phantoms
   // phantom_shape: Phantom shape. One of: square, circle
-  "show_phantoms": false,
+  "phantoms_enabled": false,
   "phantom_shape": "circle",
 
   // Highlight Region
@@ -20,23 +20,13 @@
   "underline_style": "stippled",
   "underline_color": "purple",
 
-  // HSL Float
-  // By default the HSL color space will use full integers. Setting this
-  // value to true will enable a floating point presion to 3 decimal places.
-  "hsl_float": false,
-
-  // HEX Upper Case
-  // Display hex values in upper case.
+  // Misc Options
+  // hsl_precision: Number of decimal places in HSL precision.
+  // hex_upper_case: Display hex values in upper case.
+  // hover_preview: Show preview when mousing over a color.
+  // named_colors: Enable color phantoms for named colors (red, blue, etc).
+  "hsl_precision": 0,
   "hex_upper_case": true,
-
-  // Hover Preview
-  // Setting this to true will enable a color preview when hovering over a
-  // color. Only one color will be displayed on the screen at any point.
   "hover_preview": false,
-
-  // Named Colors
-  // Enable color boxes for named colors such as red, blue. The list of
-  // named colors comes from the SVG named colors. You can see them at
-  // https://www.december.com/html/spec/colorsvg.html
   "named_colors": false
 }

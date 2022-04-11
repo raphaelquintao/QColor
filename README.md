@@ -8,28 +8,25 @@ Awesome Sublime Color Highlighter, Converter and Picker
 
 
 ## Settings
-`phantom_shape` - Shape of the color phantom displayed, "square" or "circle".
+**phantom_shape**  - Shape of the color phantom displayed, "square" or "circle".<br/>
+**hsl_precision**  - Number of decimal places in HSL precision.<br/>
+**hex_upper_case** - Display hex values in upper case.<br/>
+**hover_preview**  - Enable a color preview when hovering over a color.<br/>
+**named_colors**   - Enable phantoms for [named colors](https://www.december.com/html/spec/colorsvg.html)
+                     such as "red", "blue".<br/>
 
-`hsl_float` - Sets HSL color precision to 3 decimal places. Default is 0 decimal places.
+### Menu Options
+**QColor: Picker** - Open the pywebview color picker.<br/>
+**QColor: Show Colors** - Show color phantoms.<br/>
+**QColor: Hide Colors** - Hide color phantoms.<br/>
+**QColor: Toggle Colors** - Toggle color phantoms.<br/>
+**QColor: Settings** - Edit the QColor settings files.<br/>
+**QColor: Key Bindings** - Edit the QColor key bindings.<br/>
 
-`hex_upper_case` - Display hex values in upper case.
-
-`hover_preview` - Enable a color preview when hovering over a color.
-
-`named_colors` - Enable phantoms for named colors such as "red", "blue".
-[Available names here.](https://www.december.com/html/spec/colorsvg.html)
-
-
-## Menu Options
-`QColor: Picker` - Open the pywebview color picker.
-
-`QColor: Show` - Enable QColor plugin.
-
-`QColor: Toggle` - Enable and disable QColor plugin
-
-`QColor: Settings` - Edit the QColor settings files.
-
-`QColor: Key Bindings` - Edit the QColor key bindings.
+### Key Bindings
+`ctrl+shift+c` - Open the color picker.<br/>
+`alt+shift+c` - Open the color convertor.<br/>
+`alt+ctrl+c` - Toggle color phantoms.<br/>
 
 
 ## Screenshots

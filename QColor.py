@@ -174,7 +174,7 @@ def popup_show(view, reg):
         location=reg.end(),
         max_width=1024,
         max_height=1024,
-        # on_hide = lambda: print("HIDE POPUP") ,
+        # on_hide = lambda: print("HIDE POPUP"),
         on_navigate=lambda x: popup_navigate(view, x))
     
 
@@ -202,7 +202,7 @@ class QPicker(object):
 class QColor(sublime_plugin.ViewEventListener):
     enabled = False
     key_conf = CONF_KEY
-    key_ctrl = "show_phantoms"
+    key_ctrl = 'phantoms_enabled'
 
     def __init__(self, view):
         self.view = view
@@ -228,9 +228,9 @@ class QColor(sublime_plugin.ViewEventListener):
         self.hover_preview = self.settings().get('hover_preview', False)
         # Util settings
         named_colors = self.settings().get('named_colors', False)
-        hsl_float = self.settings().get('hsl_float', True)
+        hsl_precision = self.settings().get('hsl_precision', True)
         hex_upper = self.settings().get('hex_upper_case', False)
-        QColorUtils.set_conf(hsl_float, hex_upper, named_colors)
+        QColorUtils.set_conf(hsl_precision, hex_upper, named_colors)
         # Restart Binds
         self.pset = sublime.PhantomSet(self.view, self.key_conf)
         self.set_view_change()
@@ -273,7 +273,6 @@ class QColor(sublime_plugin.ViewEventListener):
     def getColorRegions(view):
         c_regions = []
         for key, value in QColorUtils.regex.items():
-            # print(key)
             c_regions += view.find_all(value, sublime.IGNORECASE)
         return c_regions
 
@@ -289,10 +288,10 @@ class QColor(sublime_plugin.ViewEventListener):
             on_navigate=lambda x: QColor.phantom_navigate(self.view, x))
 
     def show_phantoms(self, only_regions=False):
-        # print("QColor", "show_phantoms")
         self.view.erase_regions(self.key_conf)
         self.view.erase_phantoms(self.key_conf)
-        if not self.isEnabled(): return False
+        if not self.isEnabled():
+            return False
         c_regions = QColor.getColorRegions(self.view)
         underline_color = self.get_region_underline_color()
         flags = self.get_region_flags()
@@ -302,7 +301,6 @@ class QColor(sublime_plugin.ViewEventListener):
                 self.phantom_show(self.view, reg)
 
     def get_region_underline_color(self):
-        # Defualt is purple
         if self.underline_color == 'red': return 'region.redish'
         if self.underline_color == 'orange': return 'region.orangish'
         if self.underline_color == 'yellow': return 'region.yellowish'
@@ -310,7 +308,7 @@ class QColor(sublime_plugin.ViewEventListener):
         if self.underline_color == 'blue': return 'region.bluish'
         if self.underline_color == 'pink': return 'region.pinkish'
         if self.underline_color == 'black': return 'region.blackish'
-        return 'region.purplish'
+        return 'region.purplish'  # Defualt purple
 
     def get_region_flags(self):
         # Make sure the underline style is one we understand
@@ -333,15 +331,18 @@ class QColor(sublime_plugin.ViewEventListener):
     # Events
 
     def on_modified(self):
-        # if DEBUG(): print("View Modified")
-        if self.isEnabled():
-            if DEBUG(): print("View Modified")
+        if DEBUG:
+            print('on_modified')
         self.show_phantoms(self.hover_preview)
-        # self.view.hide_popup()
+
+    def on_load(self):
+        if DEBUG:
+            print('on_load')
+        self.show_phantoms(self.hover_preview)
 
     def on_hover(self, point, hover_zone):
         if self.hover_preview:
-            (in_region, region) = self.find_region(point)
+            in_region, region = self.find_region(point)
             if in_region:
                 # print(point, hover_zone)
                 # popup_show(self.view, region)
@@ -351,7 +352,7 @@ class QColor(sublime_plugin.ViewEventListener):
 
     def on_text_command(self, p1, cmd):
         # if self.isEnabled():
-        # print("text cmd", p1, cmd)
+        #     print("text cmd", p1, cmd)
         pass
 
 
@@ -417,7 +418,7 @@ class QColorEnabled(sublime_plugin.ApplicationCommand):
 
 class QColorShow(sublime_plugin.ApplicationCommand):
     key_conf = CONF_KEY
-    key_ctrl = 'show_phantoms'
+    key_ctrl = 'phantoms_enabled'
 
     def settings(self):
         return sublime.load_settings(SETTINGSFILE)
