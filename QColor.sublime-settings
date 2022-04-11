@@ -6,10 +6,10 @@
   "_enabled": true,
   "q_color": { "active": false },
 
-  // Circular Phantom
-  // Set false to display square color boxes.
-  // Set true to display circular color boxes.
-  "circular_phantom": true,
+  // Phantom Shape
+  // Shape of the color phantom displayed.
+  // Available shapes are "square" and "circle"
+  "phantom_shape": "circle",
 
   // HSL Float
   // by default the HSL color space will use full integers. Setting this

@@ -75,20 +75,21 @@ def plugin_loaded():
 # HTML for Phantom
 # -----------------------
 
-def GenPhantomHTML(color, href, circular=False):
+def GenPhantomHTML(color, href, phantom_shape='circle'):
     style = """
-        *         {{ background-color:transparent; border-width:0; margin:0; padding:0; }}
-        html      {{ background-color:transparent;  }}
-        body      {{ font-size: inherit; border-color: inherit; display:block; line-height: 1em; }}
-        .circular {{ border-radius: 0.5em; }}
-        a         {{ border: 0.05rem solid; border-color: color({0} l(+90%) s(0%) a(0.15));
+        *       {{ background-color:transparent; border-width:0; margin:0; padding:0; }}
+        html    {{ background-color:transparent;  }}
+        body    {{ font-size: inherit; border-color: inherit; display:block; line-height: 1em; }}
+        .circle {{ border-radius: 0.5em; }}
+        a       {{ border: 0.05rem solid; border-color: color({0} l(+90%) s(0%) a(0.15));
                      border-radius: 0.0em; display:block; text-decoration:none; padding:-0px;
                      width: 0.95rem; height:0.95rem; margin-top: 0.01rem; background-color:{0}; }}
-        img       {{ width: inherit; height: inherit; display:inline; position: relative; }}
+        img     {{ width: inherit; height: inherit; display:inline; position: relative; }}
     """
     content = '<a class="{1}" href="{0}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="></a>'  # noqa
     html = '<body id="qcolor_phantom"><style>{0}</style>{1}</body>'
-    return html.format(style.format(color), content.format(href, "circular" if circular else ""))
+    clsname = phantom_shape.lower()
+    return html.format(style.format(color), content.format(href, clsname))
 
 
 def GenPopupHTML(color, colors, reg):
@@ -220,14 +221,15 @@ class QColor(sublime_plugin.ViewEventListener):
     def start(self):
         # Load Settings
         self.enabled = SETTINGS().get('enabled', False)
-        self.circular_phantom = self.settings().get('circular_phantom', False)
+        self.phantom_shape = self.settings().get('phantom_shape', "circle")
         self.hover_preview = self.settings().get('hover_preview', False)
+        # Util settings
         named_colors = self.settings().get('named_colors', False)
         hsl_float = self.settings().get('hsl_float', True)
         hex_upper = self.settings().get('hex_upper_case', False)
         QColorUtils.set_conf(hsl_float, hex_upper, named_colors)
-        self.pset = sublime.PhantomSet(self.view, self.key_conf)
         # Restart Binds
+        self.pset = sublime.PhantomSet(self.view, self.key_conf)
         self.set_view_change()
         self.on_view_change()
 
@@ -279,7 +281,7 @@ class QColor(sublime_plugin.ViewEventListener):
         selected = view.substr(reg).strip()
         view.add_phantom(self.key_conf,
             sublime.Region(reg.b, reg.b),
-            GenPhantomHTML(selected, reg, self.circular_phantom),
+            GenPhantomHTML(selected, reg, self.phantom_shape),
             sublime.LAYOUT_INLINE,
             on_navigate=lambda x: QColor.phantom_navigate(self.view, x))
 
