@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
 try:
-    import webview
+    import webview  # noqa
     print('true')
-except:
+except Exception:
     print('false')
-

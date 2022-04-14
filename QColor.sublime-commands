@@ -1,35 +1,19 @@
 [
-    {
-        "caption": "QColor: Picker",
-        "command": "q_color_picker"
-    },
-    {
-        "caption": "QColor: Toogle",
-        "command": "q_color_enabled"
-    },
-    {
-        "caption": "QColor: Show",
-        "command": "q_color_show"
-    },
-    {
-        "caption": "QColor: Converter",
-        "command": "q_color_converter"
-    },
-    {
-        "caption": "QColor: Settings",
-        "command": "edit_settings",
-        "args": {
-            "base_file": "${packages}/QColor/QColor.sublime-settings",
-            "default": "{\n\t$0\n}\n"
-        }
-    },
-    {
-        "caption": "QColor: Key Bindings",
-        "command": "edit_settings",
-        "args": {
-            "base_file": "${packages}/QColor/Default (${platform}).sublime-keymap",
-            "default": "[\n\t$0\n]\n"
-        }
-    }
+  // Main Options
+  { "caption":"QColor: Picker", "command":"q_color_picker"},
+  { "caption":"QColor: Show Colors", "command":"q_color_show", "args":{"show":true} },
+  { "caption":"QColor: Hide Colors", "command":"q_color_show", "args":{"show":false} },
+  { "caption":"QColor: Toggle Colors", "command":"q_color_show" },
+  { "caption":"QColor: Converter", "command":"q_color_converter" },
+  
+  // Settings and Key Bindings
+  { "caption":"QColor: Settings", "command":"edit_settings", "args": {
+      "base_file":"${packages}/QColor/QColor.sublime-settings",
+      "default":"{\n\t$0\n}\n" }},
+  { "caption":"QColor: Key Bindings", "command":"edit_settings", "args": {
+      "base_file":"${packages}/QColor/Default (${platform}).sublime-keymap",
+      "default":"[\n\t$0\n]\n" }}
 
+  // Debug Options
+  //{ "caption":"QColor: Toggle Plugin", "command":"q_color_enabled" },
 ]

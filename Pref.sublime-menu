@@ -1,37 +1,17 @@
-[
-  { "id": "preferences",
-    "children": [
-      { "caption": "Package Settings",
-        "mnemonic": "P",
-        "id": "package-settings",
-        "children": [
-          { "caption": "QColor",
-            "children": [
-              { "caption": "README",
-                "command": "open_file",
-                "args": {
-                  "file": "${packages}/QColor/README.md"
-                }
-              },
-              { "caption": "-" },
-              { "caption": "Settings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/QColor/QColor.sublime-settings",
-                  "default": "{\n\t$0\n}\n"
-                }
-              },
-              { "caption": "Key Bindings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/QColor/Default (${platform}).sublime-keymap",
-                  "default": "[\n\t$0\n]\n"
-                }
-              },
-            ]
-          }
-        ]
-      }
-    ]
-  }
-]
+[{
+  "id": "preferences",
+  "children": [{
+    "caption": "Package Settings",
+    "mnemonic": "P",
+    "id": "package-settings",
+    "children": [{
+      "caption": "QColor",
+      "children": [
+        { "caption":"README", "command":"open_file", "args":{"file":"${packages}/QColor/README.md"}},
+        { "caption":"-" },
+        { "caption":"Settings", "command":"edit_settings", "args":{"base_file":"${packages}/QColor/QColor.sublime-settings", "default":"{\n\t$0\n}\n" }},
+        { "caption":"Key Bindings", "command":"edit_settings", "args":{"base_file":"${packages}/QColor/Default (${platform}).sublime-keymap", "default":"[\n\t$0\n]\n" }},
+      ]
+    }]
+  }]
+}]

@@ -1,14 +1,32 @@
 {
-  "__debug": false,
+  // Internal Settings - Do not change these
+  // _debug: Enable QColor debug mode
+  // _enabled: Enable or disable the plugin
+  "_debug": false,
   "_enabled": true,
-  "q_color":
-  {
-    "active": false
-  },
-  "circular_phantom": true,
-  "hsl_float": false,
+
+  // Color Phantoms
+  // phantoms_enabled: Show or hide the color phantoms
+  // phantom_shape: Phantom shape. One of: square, circle
+  "phantoms_enabled": false,
+  "phantom_shape": "circle",
+
+  // Highlight Region
+  // show_on_minimap: Show or hide the regions on the minimap.
+  // underline_color: Color of region underline. One of: red, orange,
+  //   yellow, green, blue, purple, pink, black.
+  // underline_style: Underline style. One of: none, solid, stippled.
+  "show_on_minimap": true,
+  "underline_style": "stippled",
+  "underline_color": "purple",
+
+  // Misc Options
+  // hsl_precision: Number of decimal places in HSL precision.
+  // hex_upper_case: Display hex values in upper case.
+  // hover_preview: Show preview when mousing over a color.
+  // named_colors: Enable color phantoms for named colors (red, blue, etc).
+  "hsl_precision": 0,
   "hex_upper_case": true,
   "hover_preview": false,
-  "auto_close_popups": true,
   "named_colors": false
 }
