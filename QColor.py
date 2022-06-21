@@ -12,7 +12,7 @@ SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
 FOUND_WEBVIEW = False
 SETTINGS = lambda: sublime.load_settings(SETTINGSFILE)
-DEBUG = lambda: sublime.load_settings(SETTINGSFILE).get("_debug", True)
+DEBUG = lambda: sublime.load_settings(SETTINGSFILE).get("_debug", False)
 ENABLED = lambda: sublime.load_settings(SETTINGSFILE).get("_enabled", False)
 
 # LIBS
@@ -331,12 +331,12 @@ class QColor(sublime_plugin.ViewEventListener):
     # Events
 
     def on_modified(self):
-        if DEBUG:
+        if DEBUG():
             print('on_modified')
         self.show_phantoms(self.hover_preview)
 
     def on_load(self):
-        if DEBUG:
+        if DEBUG():
             print('on_load')
         self.show_phantoms(self.hover_preview)
 
