@@ -7,7 +7,7 @@ from .lib.qutils import QColorUtils
 
 # GLOBALS
 APPNAME = "QColor"
-VERSION = "1.0.8"
+VERSION = "1.0.9"
 SETTINGSFILE = "QColor.sublime-settings"
 CONF_KEY = "q_color"
 FOUND_WEBVIEW = False
